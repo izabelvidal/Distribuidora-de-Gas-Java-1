@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5612c0d6-599d-4da6-9ff8-63a3e770c09d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Produto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProdutoInexistenteException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RepositorioProdutos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RepositorioProdutosVendidos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Venda.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iRepositorioEstoqueProdutos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iRepositorioProdutosVendidos.java" afterDir="false" />
+    <list default="true" id="5612c0d6-599d-4da6-9ff8-63a3e770c09d" name="Default" comment="criando pacotes, classes e excecoes">
+      <change afterPath="$PROJECT_DIR$/src/excecoes/ProdutoJaCadastradoException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/excecoes/QuantidadeInvalidaException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entidades/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entidades/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositorios/RepositorioProdutos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositorios/RepositorioProdutos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositorios/RepositorioProdutosVendidos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositorios/RepositorioProdutosVendidos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositorios/iRepositorioEstoqueProdutos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositorios/iRepositorioEstoqueProdutos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositorios/iRepositorioProdutosVendidos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositorios/iRepositorioProdutosVendidos.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +34,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
@@ -60,12 +61,28 @@
       <option name="presentableId" value="Default" />
       <updated>1602944123711</updated>
     </task>
+    <task id="LOCAL-00001" summary="criando pacotes, classes e excecoes">
+      <created>1602956045898</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1602956045898</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="criando pacotes, classes e excecoes" />
+    <option name="LAST_COMMIT_MESSAGE" value="criando pacotes, classes e excecoes" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="786" y="68" key="#com.intellij.ide.util.MemberChooser" timestamp="1602954144022">
+    <state x="786" y="68" key="#com.intellij.ide.util.MemberChooser" timestamp="1602958841718">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="786" y="68" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1602954144022" />
+    <state x="786" y="68" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1602958841718" />
+    <state x="221" y="0" key="CommitChangelistDialog2" timestamp="1602956043337">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="221" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1602956043337" />
   </component>
 </project>
