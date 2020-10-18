@@ -1,4 +1,4 @@
-package excecoes;
+package negocio.excecoes;
 
 public class QuantidadeInvalidaException extends Exception{
     private int quantidade;

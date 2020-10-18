@@ -1,11 +1,12 @@
-package repositorios;
+package dados;
 
-import entidades.Pessoa;
-import excecoes.PessoaInexistenteException;
+import negocio.entidades.Pessoa;
+import negocio.excecoes.PessoaInexistenteException;
+import dados.contratos.iRepositorioPessoa;
 
 import java.util.ArrayList;
 
-public class RepositorioGerente implements iRepositorioPessoa{
+public class RepositorioGerente implements iRepositorioPessoa {
     private ArrayList<Pessoa> gerentes;
 
     public RepositorioGerente(){

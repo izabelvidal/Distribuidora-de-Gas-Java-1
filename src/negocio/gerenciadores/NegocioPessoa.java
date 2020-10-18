@@ -1,4 +1,4 @@
-package negocios;
+package negocio.gerenciadores;
 
 import entidades.Endereco;
 import entidades.Pessoa;

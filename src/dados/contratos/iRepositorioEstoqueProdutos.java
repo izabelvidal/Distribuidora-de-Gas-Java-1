@@ -1,9 +1,9 @@
-package repositorios;
+package dados.contratos;
 
-import entidades.Produto;
-import excecoes.ProdutoInexistenteException;
-import excecoes.ProdutoJaCadastradoException;
-import excecoes.QuantidadeInvalidaException;
+import negocio.entidades.Produto;
+import negocio.excecoes.ProdutoInexistenteException;
+import negocio.excecoes.ProdutoJaCadastradoException;
+import negocio.excecoes.QuantidadeInvalidaException;
 
 import java.util.ArrayList;
 

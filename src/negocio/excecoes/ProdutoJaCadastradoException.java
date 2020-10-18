@@ -1,4 +1,4 @@
-package excecoes;
+package negocio.excecoes;
 
 public class ProdutoJaCadastradoException extends Exception{
     private String id;

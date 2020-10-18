@@ -1,4 +1,4 @@
-package excecoes;
+package negocio.excecoes;
 
 public class ProdutoInexistenteException extends Exception{
     private String id;

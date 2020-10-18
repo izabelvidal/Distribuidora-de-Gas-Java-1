@@ -1,6 +1,6 @@
-package repositorios;
+package dados.contratos;
 
-import entidades.Venda;
+import negocio.entidades.Venda;
 import java.util.ArrayList;
 
 /**
