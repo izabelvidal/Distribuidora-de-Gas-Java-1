@@ -33,6 +33,10 @@ public class Pessoa {
         return endereco;
     }
 
+    public String getSenha() {
+        return senha;
+    }
+
     //setters
 
     public void setNome(String nome) {
