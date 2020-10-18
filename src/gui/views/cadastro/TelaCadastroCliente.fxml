@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="painelCadastroClientes" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PetShop.gui.controllers.cadastro.TelaCadastroClientesController">
+    <children>
+        <Label layoutX="172.0" layoutY="4.0" text="Cadastro de Clientes ">
+            <font>
+                <Font name="System Bold" size="26.0" />
+            </font>
+        </Label>
+        <TextField fx:id="inputNome" layoutX="23.0" layoutY="110.0">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <TextField fx:id="inputCpf" layoutX="191.0" layoutY="110.0">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <TextField fx:id="inputTelefone" layoutX="369.0" layoutY="110.0">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <Label layoutX="39.0" layoutY="82.0" text="Digite o nome" />
+        <Label layoutX="231.0" layoutY="82.0" text="Digite o CPF " />
+        <Label layoutX="417.0" layoutY="82.0" text="Digite o telefone " />
+        <Button fx:id="btnConfirmar" disable="true" layoutX="394.0" layoutY="362.0" mnemonicParsing="false" onAction="#confirmarBtnHandler" text="Confirmar">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <Button fx:id="btnCancelar" layoutX="478.0" layoutY="362.0" mnemonicParsing="false" onAction="#cancelarBtnHandler" text="Cancelar">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <TextField fx:id="inputNomePet" layoutX="23.0" layoutY="209.0">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <TextField fx:id="inputEspecie" layoutX="23.0" layoutY="265.0">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <Button fx:id="btnConfirmarPet" layoutX="23.0" layoutY="352.0" mnemonicParsing="false" onAction="#confirmarPetBtnHandler" text="Confirmar">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <TableView fx:id="tbView" layoutX="223.0" layoutY="210.0" prefHeight="135.0" prefWidth="366.0">
+            <columns>
+                <TableColumn fx:id="tbNome" prefWidth="155.0" text="Nome" />
+                <TableColumn fx:id="tbEspecie" prefWidth="120.0" text="Espécie" />
+                <TableColumn fx:id="tbSexo" prefWidth="90.0" text="Sexo" />
+            </columns>
+        </TableView>
+        <Label layoutX="40.0" layoutY="184.0" text="Digite o nome do pet" />
+        <Label layoutX="40.0" layoutY="243.0" text="Digite a espécie do pet" />
+        <Label layoutX="38.0" layoutY="297.0" text="Selecione o sexo do pet" />
+        <Label layoutX="349.0" layoutY="189.0" text="Pets Cadastrados">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+        </Label>
+        <Separator layoutY="154.0" prefHeight="17.0" prefWidth="600.0" />
+        <ChoiceBox fx:id="choiceSexo" layoutX="26.0" layoutY="321.0" prefWidth="150.0">
+            <cursor>
+                <Cursor fx:constant="CLOSED_HAND" />
+            </cursor></ChoiceBox>
+    </children>
+</Pane>
