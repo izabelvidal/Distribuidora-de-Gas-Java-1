@@ -38,6 +38,11 @@ public class NegocioCliente{
         this.repClientes.atualizarPessoa(cliente);
     }
 
+    public void alterarTelefone(Cliente cliente, String telefone){
+        cliente.setTelefone(telefone);
+        this.repClientes.atualizarPessoa(cliente);
+    }
+
     public void atualizarEndereco(Endereco endereco, Cliente cliente, String rua, int numero, String bairro, String cidade, String estado){
         endereco.setRua(rua);
         endereco.setNumero(numero);

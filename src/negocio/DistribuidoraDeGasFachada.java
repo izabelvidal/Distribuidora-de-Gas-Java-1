@@ -114,6 +114,13 @@ public class DistribuidoraDeGasFachada {
         this.negocioGerente.adicionarGerente(cliente);
     }
 
+    public void atualizarCliente(String cpf, String telefone, Endereco endereco, String rua, int numero, String bairro, String cidade, String estado, String tipo) throws PessoaInexistenteException {
+        Cliente cliente = negocioCliente.consultarCliente(cpf);
+        this.negocioCliente.alterarTipoCliente(cliente, tipo);
+        this.negocioCliente.alterarTelefone(cliente, telefone);
+        this.negocioCliente.atualizarEndereco(endereco, cliente, rua, numero, bairro, cidade, estado);
+    }
+
     //validações
     public void validarCpf(Pessoa pessoa) throws CpfTamanhoException, CpfApenasNumerosException{
         this.negocioPessoa.validarCpf(pessoa);
