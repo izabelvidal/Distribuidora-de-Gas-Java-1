@@ -44,4 +44,24 @@ public class NegocioGerente{
             }
         }
     }
+
+    public void alterarEmail(Gerente gerente, String email){
+        gerente.setEmail(email);
+        this.repGerente.atualizarPessoa(gerente);
+    }
+
+    public void alterarSenha(Gerente gerente, String senha){
+        gerente.setSenha(senha);
+        this.repGerente.atualizarPessoa(gerente);
+    }
+
+    public void atualizarEndereco(Endereco endereco, Gerente gerente, String rua, int numero, String bairro, String cidade, String estado){
+        endereco.setRua(rua);
+        endereco.setNumero(numero);
+        endereco.setBairro(bairro);
+        endereco.setCidade(cidade);
+        endereco.setEstado(estado);
+        gerente.setEndereco(endereco);
+        this.repGerente.atualizarPessoa(gerente);
+    }
 }

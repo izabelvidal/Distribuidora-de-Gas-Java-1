@@ -2,6 +2,7 @@ package negocio.gerenciadores;
 
 import dados.RepositorioCliente;
 import negocio.entidades.Cliente;
+import negocio.entidades.Endereco;
 import negocio.entidades.Pessoa;
 import negocio.excecoes.PessoaInexistenteException;
 import negocio.excecoes.PessoaJaCadastradaException;
@@ -30,5 +31,20 @@ public class NegocioCliente{
 
     public Cliente consultarCliente(String cpf) throws PessoaInexistenteException{
         return (Cliente) this.repClientes.getPessoa(cpf);
+    }
+
+    public void alterarTipoCliente(Cliente cliente, String tipo){
+        cliente.setTipo(tipo);
+        this.repClientes.atualizarPessoa(cliente);
+    }
+
+    public void atualizarEndereco(Endereco endereco, Cliente cliente, String rua, int numero, String bairro, String cidade, String estado){
+        endereco.setRua(rua);
+        endereco.setNumero(numero);
+        endereco.setBairro(bairro);
+        endereco.setCidade(cidade);
+        endereco.setEstado(estado);
+        cliente.setEndereco(endereco);
+        this.repClientes.atualizarPessoa(cliente);
     }
 }
