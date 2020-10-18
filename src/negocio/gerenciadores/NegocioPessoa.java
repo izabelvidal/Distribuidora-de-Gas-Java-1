@@ -1,45 +1,52 @@
 package negocio.gerenciadores;
 
 
+import dados.contratos.iRepositorioPessoa;
 import negocio.entidades.Pessoa;
-import negocio.entidades.Endereco;
 import negocio.excecoes.CpfTamanhoException;
 import negocio.excecoes.CpfApenasNumerosException;
 import negocio.excecoes.NomeApenasLetrasException;
 import negocio.excecoes.NomeTamanhoException;
 
-public class NegocioPessoa extends Pessoa {
+public class NegocioPessoa{
+    private iRepositorioPessoa repositorioPessoa;
+    private Pessoa pessoa;
 
-    public NegocioPessoa(String nome, String cpf, String dataNascimento, Endereco endereco) {
-        super(nome, cpf, dataNascimento, endereco);
+    public NegocioPessoa(iRepositorioPessoa repPessoa, Pessoa pessoa){
+        this.repositorioPessoa = repPessoa;
+        this.pessoa = pessoa;
     }
 
-    public void validarCpf() throws CpfTamanhoException, CpfApenasNumerosException {
+    public void validarCpf() throws CpfApenasNumerosException, CpfTamanhoException{
         boolean contemLetra = false;
-        char[] cpfArray = this.getCpf().toCharArray();
+        char[] cpfArray = pessoa.getCpf().toCharArray();
 
-        if(this.getCpf().length() != 11){
-            throw new CpfTamanhoException(this.getCpf());
+        if(pessoa.getCpf().length() != 11){
+            throw new CpfTamanhoException(pessoa.getCpf());
         }
-        for(int i = 0; i < this.getCpf().length(); i++){
+        for(int i = 0; i < pessoa.getCpf().length(); i++){
             contemLetra = Character.isLetter(cpfArray[i]);
             if(contemLetra){
-                throw new CpfApenasNumerosException(this.getCpf());
+                throw new CpfApenasNumerosException(pessoa.getCpf());
             }
         }
+
     }
 
     public void validarNome() throws NomeApenasLetrasException, NomeTamanhoException {
         boolean contemNumero;
-        char[] nomeArray = this.getNome().toCharArray();
-        if(this.getNome().length() < 5 || this.getNome().length() >= 50){
-            throw new NomeTamanhoException(this.getNome());
+        char[] nomeArray = pessoa.getNome().toCharArray();
+        if(pessoa.getNome().length() < 5 || pessoa.getNome().length() >= 50){
+            throw new NomeTamanhoException(pessoa.getNome());
         }
-        for (int i = 0; i<this.getNome().length(); i++){
+        for (int i = 0; i<pessoa.getNome().length(); i++){
             contemNumero = Character.isLetter(nomeArray[i]);
             if(!contemNumero){
-                throw new NomeApenasLetrasException(this.getNome());
+                throw new NomeApenasLetrasException(pessoa.getNome());
             }
         }
     }
+
+
+
 }
