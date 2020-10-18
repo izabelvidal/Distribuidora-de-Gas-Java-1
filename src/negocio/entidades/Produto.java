@@ -1,4 +1,4 @@
-package entidades;
+package negocio.entidades;
 
 /**
  *Essa classe representa os produtos da Distribuidora de Gás.
