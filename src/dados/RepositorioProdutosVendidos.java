@@ -1,11 +1,6 @@
 package dados;
 
-import negocio.entidades.Cliente;
-import negocio.entidades.Produto;
 import negocio.entidades.Venda;
-import negocio.excecoes.PessoaInexistenteException;
-import negocio.excecoes.ProdutoInexistenteException;
-import negocio.excecoes.QuantidadeInvalidaException;
 import dados.contratos.iRepositorioProdutosVendidos;
 
 import java.util.ArrayList;
@@ -19,39 +14,14 @@ import java.util.ArrayList;
 public class RepositorioProdutosVendidos implements iRepositorioProdutosVendidos {
 
     private ArrayList<Venda> produtosVendidos;
-    private RepositorioProdutos repositorioProdutos;
-    private RepositorioCliente repositorioCliente;
 
-    public RepositorioProdutosVendidos(RepositorioProdutos repositorioProdutos, RepositorioCliente repositorioCliente){
+    public RepositorioProdutosVendidos(){
         this.produtosVendidos = new ArrayList<>();
-        this.repositorioProdutos = repositorioProdutos;
-        this.repositorioCliente = repositorioCliente;
     }
 
     @Override
     public void adicionarVenda(Venda produtoVendido) {
         this.produtosVendidos.add(produtoVendido);
-    }
-
-    public void decrementarQntd(String id, int qntd, String cpf) throws QuantidadeInvalidaException, ProdutoInexistenteException, PessoaInexistenteException {
-        Produto produto = this.consultarProduto(id);
-        Cliente cliente = (Cliente) this.repositorioCliente.getPessoa(cpf);
-
-        if(produto.getQuantidade() < qntd){
-            throw new QuantidadeInvalidaException(qntd);
-        }else{
-            produto.setQuantidade(produto.getQuantidade() - qntd);
-
-            Venda venda = new Venda(qntd, new Produto(produto.getNome(),produto.getMarca(),produto.getId(),produto.getQuantidade(), produto.getPeso(), produto.getPreco() * qntd), new Cliente(cliente.getNome(), cliente.getEmail(), ));
-        }
-    }
-
-    public Produto consultarProduto(String id) throws ProdutoInexistenteException{
-        return this.repositorioProdutos.getProduto(id);
-    }
-    @Override
-    public ArrayList<Venda> listarProdutosVendidos() {
-        return this.produtosVendidos;
     }
 
     @Override
@@ -67,16 +37,17 @@ public class RepositorioProdutosVendidos implements iRepositorioProdutosVendidos
     }
 
     @Override
-    public ArrayList<Venda> consultarVendaPorStatus(String status) {
-        ArrayList<Venda> produtosV = new ArrayList<>();
+    public ArrayList<Venda> consultarVendaNaoConcluida(String data) {
+        ArrayList<Venda> vendaNaoConcluida = new ArrayList<>();
 
         for(Venda v: this.produtosVendidos){
-            if(v.getStatus().equals(status)){
-                produtosV.add(v);
+            if(!v.getStatus().equals("Concluída") && v.getData().equals(data)){
+                vendaNaoConcluida.add(v);
             }
         }
-        return produtosV;
+        return vendaNaoConcluida;
     }
+
 
     @Override
     public void atualizarVenda(Venda produtoVendido) {
@@ -94,5 +65,10 @@ public class RepositorioProdutosVendidos implements iRepositorioProdutosVendidos
             }
         }
         return vendaDoCliente;
+    }
+
+    @Override
+    public ArrayList<Venda> consultarVendas() {
+        return this.produtosVendidos;
     }
 }
