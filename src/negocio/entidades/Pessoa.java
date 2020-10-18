@@ -1,7 +1,7 @@
-package entidades;
+package negocio.entidades;
 
-import excecoes.CpfApenasNumerosException;
-import excecoes.CpfTamanhoException;
+import negocio.excecoes.CpfApenasNumerosException;
+import negocio.excecoes.CpfTamanhoException;
 
 public class Pessoa {
     private String nome;

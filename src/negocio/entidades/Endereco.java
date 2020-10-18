@@ -1,4 +1,4 @@
-package entidades;
+package negocio.entidades;
 
 public class Endereco {
     protected String rua;

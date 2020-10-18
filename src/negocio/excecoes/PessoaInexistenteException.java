@@ -1,4 +1,4 @@
-package excecoes;
+package negocio.excecoes;
 
 public class PessoaInexistenteException extends Exception {
     private String cpf;

@@ -1,4 +1,4 @@
-package negocios;
+package negocio.gerenciadores;
 
 public class NegocioPessoa {
 

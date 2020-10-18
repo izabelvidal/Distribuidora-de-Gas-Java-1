@@ -1,11 +1,12 @@
-package repositorios;
+package dados;
 
-import entidades.Cliente;
-import entidades.Produto;
-import entidades.Venda;
-import excecoes.PessoaInexistenteException;
-import excecoes.ProdutoInexistenteException;
-import excecoes.QuantidadeInvalidaException;
+import negocio.entidades.Cliente;
+import negocio.entidades.Produto;
+import negocio.entidades.Venda;
+import negocio.excecoes.PessoaInexistenteException;
+import negocio.excecoes.ProdutoInexistenteException;
+import negocio.excecoes.QuantidadeInvalidaException;
+import dados.contratos.iRepositorioProdutosVendidos;
 
 import java.util.ArrayList;
 
@@ -15,7 +16,7 @@ import java.util.ArrayList;
  * @author Letícia Araújo
  */
 
-public class RepositorioProdutosVendidos implements iRepositorioProdutosVendidos{
+public class RepositorioProdutosVendidos implements iRepositorioProdutosVendidos {
 
     private ArrayList<Venda> produtosVendidos;
     private RepositorioProdutos repositorioProdutos;

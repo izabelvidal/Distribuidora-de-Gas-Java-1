@@ -1,7 +1,7 @@
-package repositorios;
+package dados.contratos;
 
-import entidades.Pessoa;
-import excecoes.PessoaInexistenteException;
+import negocio.entidades.Pessoa;
+import negocio.excecoes.PessoaInexistenteException;
 
 import java.util.ArrayList;
 
