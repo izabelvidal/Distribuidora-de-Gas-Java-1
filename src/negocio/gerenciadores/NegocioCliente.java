@@ -1,17 +1,34 @@
 package negocio.gerenciadores;
 
+import dados.RepositorioCliente;
 import negocio.entidades.Cliente;
-import negocio.entidades.Endereco;
-import negocio.excecoes.ClienteTipoInvalidoException;
+import negocio.entidades.Pessoa;
+import negocio.excecoes.PessoaInexistenteException;
+import negocio.excecoes.PessoaJaCadastradaException;
 
-public class NegocioCliente extends Cliente {
-    public NegocioCliente(String nome, String cpf, String dataNascimento, Endereco endereco, String tipo){
-        super(nome, cpf, dataNascimento, endereco, tipo);
+/**
+ * Essa classe aplica as regras de negócio e o gerenciamento do Cliente no sistema
+ *
+ * @author Izabel Vidal
+ */
+
+public class NegocioCliente{
+    private RepositorioCliente repClientes;
+    public NegocioCliente(RepositorioCliente rep){
+        this.repClientes = rep;
     }
 
-    public void validarTipo() throws ClienteTipoInvalidoException {
-        if(this.getTipo().toLowerCase() != "consumidor" || this.getTipo().toLowerCase() != "revendedor"){
-            throw new ClienteTipoInvalidoException(this.getTipo());
+    public void adicionarCliente(Pessoa cliente) throws PessoaJaCadastradaException{
+        boolean existe = repClientes.verificarPessoa(cliente.getCpf());
+
+        if(existe){
+            throw new PessoaJaCadastradaException(cliente.getCpf());
+        }else{
+            this.repClientes.adicionarPessoa(cliente);
         }
+    }
+
+    public Cliente consultarCliente(String cpf) throws PessoaInexistenteException{
+        return (Cliente) this.repClientes.getPessoa(cpf);
     }
 }
