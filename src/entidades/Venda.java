@@ -1,22 +1,39 @@
 package entidades;
 
-import entidades.Cliente;
-import entidades.Produto;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+/**
+ * Essa classe representa a venda dos produtos.
+ *
+ * @author Letícia Araújo
+ */
 
 public class Venda {
-    protected int quantidade;
-    protected Produto produto;
-    protected Cliente cliente;
-    protected String hora,data,status;
+    private int quantidade;
+    private Produto produto;
+    private Cliente cliente;
+    private String hora,data,status;
 
-    public Venda(int quantidade, Produto produto, Cliente cliente, String hora, String data, String status){
+    public Venda(int quantidade, Produto produto, Cliente cliente, String status){
         this.quantidade = quantidade;
         this.produto = produto;
         this.cliente = cliente;
-        this.hora = hora;
-        this.data = data;
         this.status = status;
+
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.HOUR,-1);
+        Date data = c.getTime();
+        SimpleDateFormat dFormatada = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat hFormatada = new SimpleDateFormat("HH:mm");
+        // Hora e Data atual do sistema.
+
+        this.hora = hFormatada.format(data);
+        this.data = dFormatada.format(data);
     }
+
+    //GETTERS
 
     public int getQuantidade() {
         return quantidade;
@@ -42,6 +59,8 @@ public class Venda {
         return status;
     }
 
+    //SETTERS
+
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
@@ -64,5 +83,14 @@ public class Venda {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+    //
+
+
+    @Override
+    public String toString() {
+        return "Produto: " + this.produto + "\nCliente: " + this.cliente +
+                "\nQuantidade: " + this.quantidade + "\nData: " + this.data +
+                "\nHora: " + this.hora + "\nStatus: " + this.status;
     }
 }

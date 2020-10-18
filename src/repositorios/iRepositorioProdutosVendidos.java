@@ -1,8 +1,13 @@
 package repositorios;
 
 import entidades.Venda;
-
 import java.util.ArrayList;
+
+/**
+ * Classe de interface para o repositório de produtos vendidos.
+ *
+ * @author Letícia Araújo
+ */
 
 public interface iRepositorioProdutosVendidos {
     void adicionarVenda(Venda produtoVendido);
