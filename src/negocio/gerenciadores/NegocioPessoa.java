@@ -9,10 +9,12 @@ import negocio.excecoes.NomeApenasLetrasException;
 import negocio.excecoes.NomeTamanhoException;
 
 public class NegocioPessoa{
-    private iRepositorioPessoa repositorioPessoa;
+    private iRepositorioPessoa repositorioCliente;
+    private iRepositorioPessoa repositorioGerente;
 
-    public NegocioPessoa(iRepositorioPessoa repPessoa){
-        this.repositorioPessoa = repPessoa;
+    public NegocioPessoa(iRepositorioPessoa repositorioCliente, iRepositorioPessoa repositorioGerente){
+        this.repositorioCliente = repositorioCliente;
+        this.repositorioGerente = repositorioGerente;
     }
 
     public void validarCpf(Pessoa pessoa) throws CpfApenasNumerosException, CpfTamanhoException{
@@ -34,17 +36,15 @@ public class NegocioPessoa{
     public void validarNome(Pessoa pessoa) throws NomeApenasLetrasException, NomeTamanhoException {
         boolean contemNumero;
         char[] nomeArray = pessoa.getNome().toCharArray();
-        if(pessoa.getNome().length() < 5 || pessoa.getNome().length() >= 50){
+        if (pessoa.getNome().length() < 5 || pessoa.getNome().length() >= 50) {
             throw new NomeTamanhoException(pessoa.getNome());
         }
-        for (int i = 0; i<pessoa.getNome().length(); i++){
+        for (int i = 0; i < pessoa.getNome().length(); i++) {
             contemNumero = Character.isLetter(nomeArray[i]);
-            if(!contemNumero){
+            if (!contemNumero) {
                 throw new NomeApenasLetrasException(pessoa.getNome());
             }
         }
     }
-
-
 
 }

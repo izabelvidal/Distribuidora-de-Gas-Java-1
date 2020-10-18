@@ -4,12 +4,14 @@ public class Pessoa {
     private String nome;
     private String cpf;
     private String dataNascimento;
+    private String telefone;
     private Endereco endereco;
 
-    public Pessoa(String nome, String cpf, String dataNascimento, Endereco endereco){
+    public Pessoa(String nome, String cpf, String dataNascimento, String telefone, Endereco endereco){
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
+        this.telefone = telefone;
         this.endereco = endereco;
     }
 
@@ -25,6 +27,10 @@ public class Pessoa {
 
     public String getDataNascimento() {
         return dataNascimento;
+    }
+
+    public String getTelefone() {
+        return telefone;
     }
 
     public Endereco getEndereco() {
@@ -44,6 +50,10 @@ public class Pessoa {
 
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public void setEndereco(Endereco endereco) {

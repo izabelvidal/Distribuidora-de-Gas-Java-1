@@ -45,7 +45,7 @@ public class NegocioProduto {
         }
 
         Venda venda2 = new Venda(qntd, new Produto(produto.getNome(), produto.getMarca(), produto.getId(), produto.getQuantidade(), produto.getPeso(),
-                produto.getPreco() * qntd), new Cliente(cliente.getNome(), cliente.getCpf(), cliente.getDataNascimento(),
+                produto.getPreco() * qntd), new Cliente(cliente.getNome(), cliente.getCpf(), cliente.getDataNascimento(), cliente.getTelefone(),
                 cliente.getEndereco(), cliente.getTipo()));
 
         NegocioVenda.registarVenda(venda2);

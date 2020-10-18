@@ -5,10 +5,7 @@ import dados.RepositorioGerente;
 import dados.RepositorioProdutos;
 import dados.RepositorioProdutosVendidos;
 import negocio.entidades.*;
-import negocio.excecoes.PessoaInexistenteException;
-import negocio.excecoes.ProdutoInexistenteException;
-import negocio.excecoes.ProdutoJaCadastradoException;
-import negocio.excecoes.QuantidadeInvalidaException;
+import negocio.excecoes.*;
 import negocio.gerenciadores.*;
 
 import java.util.ArrayList;
@@ -18,12 +15,14 @@ public class DistribuidoraDeGasFachada {
     private NegocioVenda negocioVenda;
     private NegocioGerente negocioGerente;
     private NegocioCliente negocioCliente;
+    private NegocioPessoa negocioPessoa;
 
     public DistribuidoraDeGasFachada(){
         this.negocioProduto = new NegocioProduto(new RepositorioProdutos(), new RepositorioCliente());
         this.negocioVenda = new NegocioVenda(new RepositorioProdutosVendidos());
         this.negocioGerente = new NegocioGerente(new RepositorioGerente());
         this.negocioCliente = new NegocioCliente(new RepositorioCliente());
+        this.negocioPessoa = new NegocioPessoa(new RepositorioCliente(), new RepositorioGerente());
     }
 
     //iniciar métodos Produto
@@ -88,17 +87,43 @@ public class DistribuidoraDeGasFachada {
         return this.negocioVenda.consultarVendasCLienteNaoConcluida(cpf);
     }
 
-    //endereco
-    public void cadastrarEnderecoCliente(Endereco endereco, Cliente cliente, String rua, int numero, String bairro, String cidade, String estado){
-        this.negocioCliente.atualizarEndereco(endereco, cliente, rua, numero, bairro, cidade, estado);
+
+    //gerente
+    public void cadastrarGerente(String nome, String cpf, String dataNascimento, String telefone, Endereco endereco, String email, String senha, String cnpj) throws PessoaJaCadastradaException, NomeTamanhoException, NomeApenasLetrasException, CpfApenasNumerosException, CpfTamanhoException, CnpjApenasNumerosException, CnpjTamanhoException {
+        Gerente gerente = new Gerente(nome, cpf,dataNascimento,telefone, endereco, email, senha, cnpj);
+        this.validarNome(gerente);
+        this.validarCpf(gerente);
+        this.validarCnpj(gerente);
+        this.negocioGerente.adicionarGerente(gerente);
     }
 
-    public void cadastrarEnderecoGerente(Endereco endereco, Gerente gerente, String rua, int numero, String bairro, String cidade, String estado){
+
+    public void atualizarGerente(String cpf, String telefone, Endereco endereco, String rua, int numero, String bairro, String cidade, String estado, String email, String senha) throws PessoaInexistenteException {
+        Gerente gerente = (Gerente) negocioGerente.consultarGerente(cpf);
+        this.negocioGerente.alterarTelefone(gerente, telefone);
+        this.negocioGerente.alterarEmail(gerente, email);
+        this.negocioGerente.alterarSenha(gerente, senha);
         this.negocioGerente.atualizarEndereco(endereco, gerente, rua, numero, bairro, cidade, estado);
     }
-    //gerente
-    public void cadastrarGerente throws PessoaJaCadastradaException(String nome, String cpf, String dataNascimento, Endereco endereco, String email, String senha, String cnpj){
-        Gerente gerente = new Gerente(nome, cpf,dataNascimento, endereco,email, senha, cnpj);
-        this.negocioGerente.adicionarGerente(gerente);
+
+    //cliente
+    public void cadastrarCliente(String nome, String cpf, String dataNascimento, String telefone, Endereco endereco, String tipo) throws PessoaJaCadastradaException, NomeTamanhoException, NomeApenasLetrasException, CpfApenasNumerosException, CpfTamanhoException{
+        Cliente cliente = new Cliente(nome, cpf,dataNascimento,telefone, endereco, tipo);
+        this.validarNome(cliente);
+        this.validarCpf(cliente);
+        this.negocioGerente.adicionarGerente(cliente);
+    }
+
+    //validações
+    public void validarCpf(Pessoa pessoa) throws CpfTamanhoException, CpfApenasNumerosException{
+        this.negocioPessoa.validarCpf(pessoa);
+    }
+
+    public void validarNome(Pessoa pessoa) throws NomeTamanhoException, NomeApenasLetrasException{
+        this.negocioPessoa.validarNome(pessoa);
+    }
+
+    public void validarCnpj(Gerente gerente) throws CnpjTamanhoException, CnpjApenasNumerosException{
+        this.negocioGerente.validarCnpj(gerente);
     }
 }

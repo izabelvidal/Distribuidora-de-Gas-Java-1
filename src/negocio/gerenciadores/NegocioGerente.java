@@ -1,13 +1,10 @@
 package negocio.gerenciadores;
 
 import dados.RepositorioGerente;
-import dados.contratos.iRepositorioPessoa;
 import negocio.entidades.Endereco;
 import negocio.entidades.Gerente;
 import negocio.entidades.Pessoa;
 import negocio.excecoes.*;
-
-import java.util.Scanner;
 
 public class NegocioGerente{
     private RepositorioGerente repGerente;
@@ -60,6 +57,11 @@ public class NegocioGerente{
         this.repGerente.atualizarPessoa(gerente);
     }
 
+    public void alterarTelefone(Gerente gerente, String telefone){
+        gerente.setTelefone(telefone);
+        this.repGerente.atualizarPessoa(gerente);
+    }
+
     public void atualizarEndereco(Endereco endereco, Gerente gerente, String rua, int numero, String bairro, String cidade, String estado){
         endereco.setRua(rua);
         endereco.setNumero(numero);
@@ -68,5 +70,9 @@ public class NegocioGerente{
         endereco.setEstado(estado);
         gerente.setEndereco(endereco);
         this.repGerente.atualizarPessoa(gerente);
+    }
+
+    public Pessoa consultarGerente(String cpf) throws PessoaInexistenteException {
+        return this.repGerente.getPessoa(cpf);
     }
 }
