@@ -18,7 +18,7 @@
             <cursor>
                 <Cursor fx:constant="TEXT" />
             </cursor></TextField>
-        <TextField fx:id="inputDigiteMarca" layoutX="94.0" layoutY="170.0">
+        <TextField fx:id="inputDigiteMarca" layoutX="81.0" layoutY="170.0">
             <cursor>
                 <Cursor fx:constant="TEXT" />
             </cursor></TextField>
@@ -31,7 +31,7 @@
                 <Cursor fx:constant="TEXT" />
             </cursor></TextField>
         <Label layoutX="119.0" layoutY="69.0" text="Digite o nome" />
-        <Label layoutX="119.0" layoutY="145.0" text="Digite a marca" />
+        <Label layoutX="116.0" layoutY="145.0" text="Digite a marca" />
         <Label layoutX="362.0" layoutY="145.0" text="Digite o preço" />
         <Label layoutX="345.0" layoutY="69.0" text="Digite a quantidade" />
         <Button fx:id="btnConfirmar" layoutX="197.0" layoutY="300.0" mnemonicParsing="false" onAction="#confirmarBtnHandler" text="Confirmar">
@@ -42,10 +42,12 @@
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor></Button>
-        <Label layoutX="259.0" layoutY="218.0" text="Insira o Id" />
-        <TextField fx:id="inputID" layoutX="211.0" layoutY="246.0">
+        <Label layoutX="128.0" layoutY="215.0" text="Insira o Id" />
+        <TextField fx:id="inputID" layoutX="84.0" layoutY="239.0">
             <cursor>
                 <Cursor fx:constant="TEXT" />
             </cursor></TextField>
+      <Label layoutX="364.0" layoutY="215.0" text="Digite o peso" />
+      <TextField fx:id="inputDigitePeso" layoutX="323.0" layoutY="239.0" />
     </children>
 </Pane>

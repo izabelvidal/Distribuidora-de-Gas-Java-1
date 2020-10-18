@@ -17,19 +17,19 @@
                 <Cursor fx:constant="TEXT" />
             </cursor>
         </Label>
-        <Button fx:id="btnVenda" layoutX="128.0" layoutY="91.0" mnemonicParsing="false" onAction="#vendaBtnHandler" prefHeight="73.0" prefWidth="115.0" text="Venda">
+        <Button fx:id="btnVenda" layoutX="92.0" layoutY="91.0" mnemonicParsing="false" onAction="#vendaBtnHandler" prefHeight="73.0" prefWidth="115.0" text="Venda">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor></Button>
-        <Button fx:id="btnCadastro" layoutX="343.0" layoutY="200.0" mnemonicParsing="false" onAction="#cadastroBtnHandler" prefHeight="73.0" prefWidth="115.0" text="Cadastro">
+        <Button fx:id="btnCadastro" layoutX="176.0" layoutY="189.0" mnemonicParsing="false" onAction="#cadastroBtnHandler" prefHeight="73.0" prefWidth="115.0" text="Cadastro">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor></Button>
-        <Button fx:id="btnAlterar" layoutX="343.0" layoutY="91.0" mnemonicParsing="false" onAction="#alterarBtnHandler" prefHeight="73.0" prefWidth="115.0" text="Alterar ">
+        <Button fx:id="btnAlterar" layoutX="254.0" layoutY="91.0" mnemonicParsing="false" onAction="#alterarBtnHandler" prefHeight="73.0" prefWidth="115.0" text="Alterar ">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor></Button>
-        <Button fx:id="btnListar" layoutX="128.0" layoutY="200.0" mnemonicParsing="false" onAction="#listarBtnHandler" prefHeight="73.0" prefWidth="115.0" text="Consultas">
+        <Button fx:id="btnListar" layoutX="401.0" layoutY="91.0" mnemonicParsing="false" onAction="#listarBtnHandler" prefHeight="73.0" prefWidth="115.0" text="Consultas">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor></Button>
@@ -37,5 +37,10 @@
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor></Button>
+      <Button fx:id="btnListar" layoutX="329.0" layoutY="189.0" mnemonicParsing="false" onAction="#listarBtnHandler" prefHeight="73.0" prefWidth="115.0" text="Listar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
     </children>
 </Pane>
