@@ -16,11 +16,11 @@ public class Venda {
     private Cliente cliente;
     private String hora,data,status;
 
-    public Venda(int quantidade, Produto produto, Cliente cliente, String status){
+    public Venda(int quantidade, Produto produto, Cliente cliente){
         this.quantidade = quantidade;
         this.produto = produto;
         this.cliente = cliente;
-        this.status = status;
+        this.status = "Não concluída";
 
         Calendar c = Calendar.getInstance();
         c.add(Calendar.HOUR,-1);
@@ -81,8 +81,8 @@ public class Venda {
         this.data = data;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void concluirStatus(){
+        this.status = "Concluída";
     }
     //
 

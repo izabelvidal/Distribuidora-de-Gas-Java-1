@@ -11,9 +11,9 @@ import java.util.ArrayList;
 
 public interface iRepositorioProdutosVendidos {
     void adicionarVenda(Venda produtoVendido);
-    ArrayList<Venda> listarProdutosVendidos();
     ArrayList<Venda> consultarVendaPorData(String data);
-    ArrayList<Venda> consultarVendaPorStatus(String status);
+    ArrayList<Venda> consultarVendaNaoConcluida(String data);
     void atualizarVenda(Venda produtoVendido);
     ArrayList<Venda> consultarVendaPeloCliente(String cpf);
+    ArrayList<Venda> consultarVendas();
 }

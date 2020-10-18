@@ -1,11 +1,6 @@
 package dados;
 
-import negocio.entidades.Cliente;
-import negocio.entidades.Produto;
 import negocio.entidades.Venda;
-import negocio.excecoes.PessoaInexistenteException;
-import negocio.excecoes.ProdutoInexistenteException;
-import negocio.excecoes.QuantidadeInvalidaException;
 import dados.contratos.iRepositorioProdutosVendidos;
 
 import java.util.ArrayList;
@@ -30,11 +25,6 @@ public class RepositorioProdutosVendidos implements iRepositorioProdutosVendidos
     }
 
     @Override
-    public ArrayList<Venda> listarProdutosVendidos() {
-        return this.produtosVendidos;
-    }
-
-    @Override
     public ArrayList<Venda> consultarVendaPorData(String data) {
         ArrayList<Venda> produtosV = new ArrayList<>();
 
@@ -47,16 +37,17 @@ public class RepositorioProdutosVendidos implements iRepositorioProdutosVendidos
     }
 
     @Override
-    public ArrayList<Venda> consultarVendaPorStatus(String status) {
-        ArrayList<Venda> produtosV = new ArrayList<>();
+    public ArrayList<Venda> consultarVendaNaoConcluida(String data) {
+        ArrayList<Venda> vendaNaoConcluida = new ArrayList<>();
 
         for(Venda v: this.produtosVendidos){
-            if(v.getStatus().equals(status)){
-                produtosV.add(v);
+            if(!v.getStatus().equals("Concluída") && v.getData().equals(data)){
+                vendaNaoConcluida.add(v);
             }
         }
-        return produtosV;
+        return vendaNaoConcluida;
     }
+
 
     @Override
     public void atualizarVenda(Venda produtoVendido) {
@@ -74,5 +65,10 @@ public class RepositorioProdutosVendidos implements iRepositorioProdutosVendidos
             }
         }
         return vendaDoCliente;
+    }
+
+    @Override
+    public ArrayList<Venda> consultarVendas() {
+        return this.produtosVendidos;
     }
 }
