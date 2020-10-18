@@ -1,5 +1,8 @@
 package entidades;
 
+import excecoes.CpfApenasNumerosException;
+import excecoes.CpfTamanhoException;
+
 public class Pessoa {
     private String nome;
     private String email;
@@ -57,6 +60,21 @@ public class Pessoa {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    public void validarCPF() throws CpfApenasNumerosException, CpfTamanhoException {
+        boolean contemLetra = false;
+        char[] CPF_Array = this.cpf.toCharArray();
+
+        if(this.cpf.length() != 11){
+            throw new CpfApenasNumerosException(this.cpf);
+        }
+        for(int i = 0; i < this.cpf.length(); i++){
+            contemLetra = Character.isLetter(CPF_Array[i]);
+            if(contemLetra){
+                throw new CpfTamanhoException();
+            }
+        }
     }
 
     @Override
