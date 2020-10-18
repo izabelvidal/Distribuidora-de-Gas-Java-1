@@ -5,23 +5,28 @@ import dados.contratos.iRepositorioPessoa;
 import negocio.entidades.Endereco;
 import negocio.entidades.Gerente;
 import negocio.entidades.Pessoa;
-import negocio.excecoes.CnpjApenasNumerosException;
-import negocio.excecoes.CnpjTamanhoException;
-import negocio.excecoes.SenhaCaracteresInvalidosException;
-import negocio.excecoes.SenhaTamanhoException;
+import negocio.excecoes.*;
 
 import java.util.Scanner;
 
 public class NegocioGerente{
     private RepositorioGerente repGerente;
-    private Gerente gerente;
 
-    public NegocioGerente(RepositorioGerente repGerente, Gerente gerente){
+    public NegocioGerente(RepositorioGerente repGerente){
         this.repGerente = repGerente;
-        this.gerente = gerente;
     }
 
-    public void validarSenha() throws SenhaTamanhoException, SenhaCaracteresInvalidosException {
+    public void adicionarGerente(Pessoa gerente) throws PessoaJaCadastradaException {
+        boolean existe = repGerente.verificarPessoa(gerente.getCpf());
+
+        if(existe){
+            throw new PessoaJaCadastradaException(gerente.getCpf());
+        }else{
+            this.repGerente.adicionarPessoa(gerente);
+        }
+    }
+
+    public void validarSenha(Gerente gerente) throws SenhaTamanhoException, SenhaCaracteresInvalidosException {
         if(gerente.getSenha().length() < 8 ){
             throw new SenhaTamanhoException(gerente.getSenha());
         }
@@ -30,7 +35,7 @@ public class NegocioGerente{
         }
     }
 
-    public void validarCnpj() throws CnpjApenasNumerosException, CnpjTamanhoException{
+    public void validarCnpj(Gerente gerente) throws CnpjApenasNumerosException, CnpjTamanhoException{
         boolean contemLetra;
         char[] cnpjArray = gerente.getCnpj().toCharArray();
 

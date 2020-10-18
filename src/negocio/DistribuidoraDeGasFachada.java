@@ -1,26 +1,29 @@
 package negocio;
 
 import dados.RepositorioCliente;
+import dados.RepositorioGerente;
 import dados.RepositorioProdutos;
 import dados.RepositorioProdutosVendidos;
-import negocio.entidades.Produto;
-import negocio.entidades.Venda;
+import negocio.entidades.*;
 import negocio.excecoes.PessoaInexistenteException;
 import negocio.excecoes.ProdutoInexistenteException;
 import negocio.excecoes.ProdutoJaCadastradoException;
 import negocio.excecoes.QuantidadeInvalidaException;
-import negocio.gerenciadores.NegocioProduto;
-import negocio.gerenciadores.NegocioVenda;
+import negocio.gerenciadores.*;
 
 import java.util.ArrayList;
 
 public class DistribuidoraDeGasFachada {
     private NegocioProduto negocioProduto;
     private NegocioVenda negocioVenda;
+    private NegocioGerente negocioGerente;
+    private NegocioCliente negocioCliente;
 
     public DistribuidoraDeGasFachada(){
         this.negocioProduto = new NegocioProduto(new RepositorioProdutos(), new RepositorioCliente());
         this.negocioVenda = new NegocioVenda(new RepositorioProdutosVendidos());
+        this.negocioGerente = new NegocioGerente(new RepositorioGerente());
+        this.negocioCliente = new NegocioCliente(new RepositorioCliente());
     }
 
     //iniciar métodos Produto
@@ -83,5 +86,19 @@ public class DistribuidoraDeGasFachada {
 
     public ArrayList<Venda> consultarVendasClienteNaoConcluida(String cpf){
         return this.negocioVenda.consultarVendasCLienteNaoConcluida(cpf);
+    }
+
+    //endereco
+    public void cadastrarEnderecoCliente(Endereco endereco, Cliente cliente, String rua, int numero, String bairro, String cidade, String estado){
+        this.negocioCliente.atualizarEndereco(endereco, cliente, rua, numero, bairro, cidade, estado);
+    }
+
+    public void cadastrarEnderecoGerente(Endereco endereco, Gerente gerente, String rua, int numero, String bairro, String cidade, String estado){
+        this.negocioGerente.atualizarEndereco(endereco, gerente, rua, numero, bairro, cidade, estado);
+    }
+    //gerente
+    public void cadastrarGerente throws PessoaJaCadastradaException(String nome, String cpf, String dataNascimento, Endereco endereco, String email, String senha, String cnpj){
+        Gerente gerente = new Gerente(nome, cpf,dataNascimento, endereco,email, senha, cnpj);
+        this.negocioGerente.adicionarGerente(gerente);
     }
 }

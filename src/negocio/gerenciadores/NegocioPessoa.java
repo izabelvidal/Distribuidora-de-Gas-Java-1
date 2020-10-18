@@ -10,14 +10,12 @@ import negocio.excecoes.NomeTamanhoException;
 
 public class NegocioPessoa{
     private iRepositorioPessoa repositorioPessoa;
-    private Pessoa pessoa;
 
-    public NegocioPessoa(iRepositorioPessoa repPessoa, Pessoa pessoa){
+    public NegocioPessoa(iRepositorioPessoa repPessoa){
         this.repositorioPessoa = repPessoa;
-        this.pessoa = pessoa;
     }
 
-    public void validarCpf() throws CpfApenasNumerosException, CpfTamanhoException{
+    public void validarCpf(Pessoa pessoa) throws CpfApenasNumerosException, CpfTamanhoException{
         boolean contemLetra = false;
         char[] cpfArray = pessoa.getCpf().toCharArray();
 
@@ -33,7 +31,7 @@ public class NegocioPessoa{
 
     }
 
-    public void validarNome() throws NomeApenasLetrasException, NomeTamanhoException {
+    public void validarNome(Pessoa pessoa) throws NomeApenasLetrasException, NomeTamanhoException {
         boolean contemNumero;
         char[] nomeArray = pessoa.getNome().toCharArray();
         if(pessoa.getNome().length() < 5 || pessoa.getNome().length() >= 50){
