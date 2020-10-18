@@ -1,5 +1,10 @@
 package entidades;
 
+/**
+ *Essa classe representa os produtos da Distribuidora de Gás.
+ *
+ * @author Letícia Araújo
+ */
 public class Produto {
     protected String nome,marca,id;
     protected int quantidade;
@@ -13,6 +18,8 @@ public class Produto {
         this.peso = peso;
         this.preco = preco;
     }
+
+    //GETTERS
 
     public String getNome() {
         return nome;
@@ -38,6 +45,8 @@ public class Produto {
         return preco;
     }
 
+    //SETTERS
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -62,5 +71,9 @@ public class Produto {
         this.preco = preco;
     }
 
-
+    @Override
+    public String toString() {
+        return "ID: " + this.id + "\nNome: " + this.nome + "\nMarca: " + this.marca +
+                "\nQuantidade: " + this.quantidade + "\nPeso: " + this.peso + "\nPreço: " + this.preco;
+    }
 }
