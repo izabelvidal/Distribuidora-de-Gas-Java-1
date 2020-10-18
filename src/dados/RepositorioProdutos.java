@@ -23,14 +23,8 @@ public class RepositorioProdutos implements iRepositorioEstoqueProdutos {
    }
 
     @Override
-    public void adicionarProduto(Produto produto) throws ProdutoJaCadastradoException {
-       boolean existe = verificarProduto(produto.getId());
-
-       if(existe){
-           throw new ProdutoJaCadastradoException(produto.getId());
-       }else{
-           this.produtos.add(produto);
-       }
+    public void adicionarProduto(Produto produto){
+       this.produtos.add(produto);
     }
 
     @Override
@@ -60,16 +54,6 @@ public class RepositorioProdutos implements iRepositorioEstoqueProdutos {
     public void atualizarProduto(Produto produto) {
         int index = this.produtos.indexOf(produto);
         this.produtos.set(index,produto);
-    }
-
-    @Override
-    public void alterarPreco(Produto produto, double preco) throws ProdutoInexistenteException {
-
-    }
-
-    @Override
-    public void alterarQuantidade(Produto produto, int qntd) throws ProdutoInexistenteException, QuantidadeInvalidaException {
-
     }
 
     @Override
