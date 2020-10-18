@@ -1,17 +1,39 @@
 package negocio.entidades;
 
 public class Gerente extends Pessoa{
+    private String email;
+    private String senha;
     private String cnpj;
 
-    public Gerente(String nome, String email, String senha, String cpf, Endereco endereco, String cnpj) {
-        super(nome, email, senha, cpf, endereco);
+    public Gerente(String nome, String cpf, Endereco endereco, String email, String senha, String cnpj) {
+        super(nome, cpf, endereco);
+        this.email = email;
+        this.senha = senha;
         this.cnpj = cnpj;
     }
 
     //getters
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
     public String getCnpj() {
         return cnpj;
+    }
+
+    //setters
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public void setCnpj(String cnpj) {

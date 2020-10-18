@@ -2,8 +2,8 @@ package negocio.entidades;
 
 public class Cliente extends Pessoa{
     private String tipo;
-    public Cliente(String nome, String email, String senha, String cpf, Endereco endereco, String tipo){
-        super(nome, email, senha, cpf, endereco);
+    public Cliente(String nome, String cpf, Endereco endereco, String tipo){
+        super(nome, cpf, endereco);
         this.tipo = tipo;
     }
 
@@ -20,7 +20,7 @@ public class Cliente extends Pessoa{
 
     @Override
     public String toString() {
-        return "Nome: " + this.getNome() + "\nEmail: " + this.getEmail() + "\nCPF: " + this.getCpf() +
+        return "Nome: " + this.getNome() + "\nCPF: " + this.getCpf() +
                 "\nEndereço: " + this.getEndereco() + "\nTipo: " + this.tipo;
     }
 }

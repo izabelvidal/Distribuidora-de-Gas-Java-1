@@ -1,4 +1,4 @@
-package excecoes;
+package negocio.excecoes;
 
 public class NomeApenasLetrasException extends Exception {
     String nome;
