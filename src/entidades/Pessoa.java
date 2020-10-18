@@ -67,7 +67,7 @@ public class Pessoa {
         char[] CPF_Array = this.cpf.toCharArray();
 
         if(this.cpf.length() != 11){
-            throw new CpfApenasNumerosException(this.cpf);
+            throw new CpfApenasNumerosException(this.getCpf());
         }
         for(int i = 0; i < this.cpf.length(); i++){
             contemLetra = Character.isLetter(CPF_Array[i]);
