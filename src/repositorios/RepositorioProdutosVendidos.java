@@ -3,6 +3,7 @@ package repositorios;
 import entidades.Cliente;
 import entidades.Produto;
 import entidades.Venda;
+import excecoes.PessoaInexistenteException;
 import excecoes.ProdutoInexistenteException;
 import excecoes.QuantidadeInvalidaException;
 
@@ -18,10 +19,12 @@ public class RepositorioProdutosVendidos implements iRepositorioProdutosVendidos
 
     private ArrayList<Venda> produtosVendidos;
     private RepositorioProdutos repositorioProdutos;
+    private RepositorioCliente repositorioCliente;
 
-    public RepositorioProdutosVendidos(RepositorioProdutos repositorioProdutos){
+    public RepositorioProdutosVendidos(RepositorioProdutos repositorioProdutos, RepositorioCliente repositorioCliente){
         this.produtosVendidos = new ArrayList<>();
         this.repositorioProdutos = repositorioProdutos;
+        this.repositorioCliente = repositorioCliente;
     }
 
     @Override
@@ -29,18 +32,18 @@ public class RepositorioProdutosVendidos implements iRepositorioProdutosVendidos
         this.produtosVendidos.add(produtoVendido);
     }
 
-    /*public void decrementarQntd(String id, int qntd, String cpf) throws QuantidadeInvalidaException, ProdutoInexistenteException{
+    public void decrementarQntd(String id, int qntd, String cpf) throws QuantidadeInvalidaException, ProdutoInexistenteException, PessoaInexistenteException {
         Produto produto = this.consultarProduto(id);
-        Cliente cliente = this.consultarCliente(cpf);
+        Cliente cliente = (Cliente) this.repositorioCliente.getPessoa(cpf);
 
         if(produto.getQuantidade() < qntd){
             throw new QuantidadeInvalidaException(qntd);
         }else{
             produto.setQuantidade(produto.getQuantidade() - qntd);
 
-            Venda venda = new Venda(qntd, new Produto(produto.getNome(),produto.getMarca(),produto.getId(),produto.getQuantidade(), produto.getPeso(), produto.getPreco() * qntd), );
+            Venda venda = new Venda(qntd, new Produto(produto.getNome(),produto.getMarca(),produto.getId(),produto.getQuantidade(), produto.getPeso(), produto.getPreco() * qntd), new Cliente(cliente.getNome(), cliente.getEmail(), ));
         }
-    }*/
+    }
 
     public Produto consultarProduto(String id) throws ProdutoInexistenteException{
         return this.repositorioProdutos.getProduto(id);
