@@ -5,8 +5,8 @@ public class Gerente extends Pessoa{
     private String senha;
     private String cnpj;
 
-    public Gerente(String nome, String cpf, Endereco endereco, String email, String senha, String cnpj) {
-        super(nome, cpf, endereco);
+    public Gerente(String nome, String cpf,String dataNascimento, Endereco endereco, String email, String senha, String cnpj) {
+        super(nome, cpf, dataNascimento, endereco);
         this.email = email;
         this.senha = senha;
         this.cnpj = cnpj;

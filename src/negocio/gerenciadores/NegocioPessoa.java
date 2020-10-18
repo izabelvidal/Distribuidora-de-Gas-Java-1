@@ -10,8 +10,8 @@ import negocio.excecoes.NomeTamanhoException;
 
 public class NegocioPessoa extends Pessoa {
 
-    public NegocioPessoa(String nome, String email, String senha, String cpf, Endereco endereco) {
-        super(nome, email, senha, cpf, endereco);
+    public NegocioPessoa(String nome, String cpf, String dataNascimento, Endereco endereco) {
+        super(nome, cpf, dataNascimento, endereco);
     }
 
     public void validarCpf() throws CpfTamanhoException, CpfApenasNumerosException {

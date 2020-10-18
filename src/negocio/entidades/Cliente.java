@@ -2,8 +2,8 @@ package negocio.entidades;
 
 public class Cliente extends Pessoa{
     private String tipo;
-    public Cliente(String nome, String cpf, Endereco endereco, String tipo){
-        super(nome, cpf, endereco);
+    public Cliente(String nome, String cpf, String dataNascimento, Endereco endereco, String tipo){
+        super(nome, cpf, dataNascimento, endereco);
         this.tipo = tipo;
     }
 
