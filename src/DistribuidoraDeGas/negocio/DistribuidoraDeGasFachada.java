@@ -10,6 +10,12 @@ import DistribuidoraDeGas.negocio.gerenciadores.*;
 
 import java.util.ArrayList;
 
+/**
+ * Classe que se conecta com a interface gráfica
+ *
+ * @author Letícia Araújo e Izabel Vidal
+ */
+
 public class DistribuidoraDeGasFachada {
     private NegocioProduto negocioProduto;
     private NegocioVenda negocioVenda;
