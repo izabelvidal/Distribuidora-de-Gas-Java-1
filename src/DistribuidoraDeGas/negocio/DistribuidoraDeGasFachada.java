@@ -86,7 +86,7 @@ public class DistribuidoraDeGasFachada {
     public ArrayList<Venda> consultarVendasClienteNaoConcluida(String cpf){
         return this.negocioVenda.consultarVendasCLienteNaoConcluida(cpf);
     }
-    //Fim métodos DistribuidoraDeGas.gui.views.DistribuidoraDeGas.gui.controllers.venda
+    //Fim métodos venda
 
 
     //gerente
