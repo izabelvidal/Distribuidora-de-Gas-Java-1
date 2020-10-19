@@ -8,7 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Essa classe representa a venda dos produtos.
+ * Essa classe representa a DistribuidoraDeGas.gui.views.DistribuidoraDeGas.gui.controllers.venda dos produtos.
  *
  * @author Letícia Araújo
  */

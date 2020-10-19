@@ -98,7 +98,7 @@ public class TelaCadastroGerenteController implements Initializable {
                 spam.show();
                 limparCampos();
                 btnConfirmar.setDisable(true);
-            } catch (PessoaJaCadastradaException | NomeTamanhoException | NomeApenasLetrasException | CpfApenasNumerosException | CpfTamanhoException | CnpjApenasNumerosException | CnpjTamanhoException e) {
+            } catch (PessoaJaCadastradaException | NomeTamanhoException | NomeApenasLetrasException | CpfApenasNumerosException | CpfTamanhoException | CnpjApenasNumerosException | CnpjTamanhoException | SenhaTamanhoException | SenhaCaracteresInvalidosException e) {
                 spam.setAlertType(Alert.AlertType.ERROR);
                 spam.setContentText(e.getMessage());
                 spam.show();

@@ -86,14 +86,16 @@ public class DistribuidoraDeGasFachada {
     public ArrayList<Venda> consultarVendasClienteNaoConcluida(String cpf){
         return this.negocioVenda.consultarVendasCLienteNaoConcluida(cpf);
     }
+    //Fim métodos DistribuidoraDeGas.gui.views.DistribuidoraDeGas.gui.controllers.venda
 
 
     //gerente
-    public void cadastrarGerente(String nome, String cpf, String dataNascimento, String telefone, Endereco endereco, String email, String senha, String cnpj) throws PessoaJaCadastradaException, NomeTamanhoException, NomeApenasLetrasException, CpfApenasNumerosException, CpfTamanhoException, CnpjApenasNumerosException, CnpjTamanhoException {
+    public void cadastrarGerente(String nome, String cpf, String dataNascimento, String telefone, Endereco endereco, String email, String senha, String cnpj) throws PessoaJaCadastradaException, NomeTamanhoException, NomeApenasLetrasException, CpfApenasNumerosException, CpfTamanhoException, CnpjApenasNumerosException, CnpjTamanhoException, SenhaTamanhoException, SenhaCaracteresInvalidosException {
         Gerente gerente = new Gerente(nome, cpf,dataNascimento,telefone, endereco, email, senha, cnpj);
         this.validarNome(gerente);
         this.validarCpf(gerente);
         this.validarCnpj(gerente);
+        this.validarSenha(gerente);
         this.negocioGerente.adicionarGerente(gerente);
     }
 
@@ -121,6 +123,10 @@ public class DistribuidoraDeGasFachada {
         this.negocioCliente.atualizarEndereco(endereco, cliente, rua, numero, bairro, cidade, estado);
     }
 
+    public Cliente consultarCliente(String cpf) throws PessoaInexistenteException {
+        return this.negocioCliente.consultarCliente(cpf);
+    }
+
     //validações
     public void validarCpf(Pessoa pessoa) throws CpfTamanhoException, CpfApenasNumerosException{
         this.negocioPessoa.validarCpf(pessoa);
@@ -132,5 +138,9 @@ public class DistribuidoraDeGasFachada {
 
     public void validarCnpj(Gerente gerente) throws CnpjTamanhoException, CnpjApenasNumerosException{
         this.negocioGerente.validarCnpj(gerente);
+    }
+
+    public void validarSenha(Gerente gerente) throws SenhaTamanhoException, SenhaCaracteresInvalidosException {
+        this.negocioGerente.validarSenha(gerente);
     }
 }
