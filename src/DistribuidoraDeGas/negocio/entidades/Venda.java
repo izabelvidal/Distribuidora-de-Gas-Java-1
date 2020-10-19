@@ -1,11 +1,11 @@
-package DistribuidoraDeGas.negocio.entidades;
+package negocio.entidades;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Essa classe representa a DistribuidoraDeGas.gui.views.venda dos produtos.
+ * Essa classe representa a venda dos produtos.
  *
  * @author Letícia Araújo
  */
