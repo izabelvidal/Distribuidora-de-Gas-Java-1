@@ -119,7 +119,7 @@ public class DistribuidoraDeGasFachada {
         Cliente cliente = new Cliente(nome, cpf,dataNascimento,telefone, endereco, tipo);
         this.validarNome(cliente);
         this.validarCpf(cliente);
-        this.negocioGerente.adicionarGerente(cliente);
+        this.negocioCliente.adicionarCliente(cliente);
     }
 
     public void atualizarCliente(String cpf, String telefone, Endereco endereco, String rua, int numero, String bairro, String cidade, String estado, String tipo) throws PessoaInexistenteException {
