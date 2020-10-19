@@ -64,6 +64,10 @@ public class TelaVendaProdutosController implements Initializable {
     @FXML
     private TextField inputCpf;
 
+    /**
+     * Initializes the controller class.
+     */
+
     public TelaVendaProdutosController(){
         this.valorT = 0.0;
         spam = new Alert(Alert.AlertType.NONE);
