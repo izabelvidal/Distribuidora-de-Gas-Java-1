@@ -32,7 +32,7 @@ public class MenuInicialController implements Initializable {
     private void vendaBtnHandler(ActionEvent event){
         Pane telaVenda;
         try{
-            telaVenda = FXMLLoader.load(getClass().getResource("../views/DistribuidoraDeGas.gui.views.DistribuidoraDeGas.gui.controllers.venda/TelaVendaProdutos.fxml"));
+            telaVenda = FXMLLoader.load(getClass().getResource("../views/venda/TelaAgendamentoEntrega.fxml"));
             painel.getChildren().setAll(telaVenda);
         }catch (IOException ex){
             System.out.println(ex.getMessage());
