@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="painelAgendamento" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DistribuidoraDeGas.gui.controllers.venda.TelaAgendamentoEntregaController">
+    <children>
+        <Button fx:id="btnAgendar" layoutX="425.0" layoutY="143.0" mnemonicParsing="false" onAction="#agendarBtnHandler" text="Agendar horário">
+            <font>
+                <Font name="Arial" size="12.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button fx:id="btnVoltar" layoutX="276.0" layoutY="351.0" mnemonicParsing="false" onAction="#voltarBtnHandler" text="Voltar">
+            <font>
+                <Font name="Arial" size="12.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Label layoutX="150.0" layoutY="14.0" text="Agendamento de Entrega">
+            <font>
+                <Font name="System Bold" size="26.0" />
+            </font>
+        </Label>
+        <DatePicker fx:id="datePicker" layoutX="49.0" layoutY="142.0" onAction="#inputDataHandler" promptText="Selecione a data">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></DatePicker>
+        <ChoiceBox fx:id="choiceAgendamentos" layoutX="248.0" layoutY="142.0" prefWidth="150.0">
+            <cursor>
+                <Cursor fx:constant="CLOSED_HAND" />
+            </cursor></ChoiceBox>
+        <Label layoutX="264.0" layoutY="117.0" prefHeight="23.0" prefWidth="119.0" text="Horários livre por data" />
+    </children>
+</Pane>

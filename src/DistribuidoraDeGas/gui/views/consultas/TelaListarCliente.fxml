@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane fx:id="painelListarClientes" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DistribuidoraDeGas.gui.controllers.consultas.TelaListarClienteController">
+   <children>
+      <Label layoutX="195.0" layoutY="8.0" text="Consultar Cliente">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnBuscar" layoutX="354.0" layoutY="67.0" mnemonicParsing="false" onAction="#buscarBtnHandler" text="buscar" />
+      <TextField fx:id="inputBuscar" layoutX="195.0" layoutY="67.0" />
+      <Label layoutX="218.0" layoutY="46.0" text="Insira o cpf do cliente" />
+      <TableView fx:id="tbCliente" layoutY="127.0" prefHeight="91.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="tbNome" prefWidth="217.0" text="Nome" />
+          <TableColumn fx:id="tbCpf" prefWidth="100.0" text="CPF" />
+            <TableColumn fx:id="tbDataNasc" text="Nascimento" />
+            <TableColumn fx:id="tbTel" prefWidth="118.0" text="Telefone" />
+            <TableColumn fx:id="tbTipo" prefWidth="84.0" text="Tipo" />
+        </columns>
+      </TableView>
+      <Label layoutX="188.0" layoutY="98.0" text="Informações do Cliente">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tbEndereco" layoutY="239.0" prefHeight="97.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="tbRua" prefWidth="169.0" text="Rua" />
+          <TableColumn fx:id="tbNumero" prefWidth="63.0" text="Número" />
+            <TableColumn fx:id="tbBairro" prefWidth="125.0" text="Bairro" />
+            <TableColumn fx:id="tbEstado" prefWidth="117.0" text="Estado" />
+            <TableColumn fx:id="tbCidade" prefWidth="125.0" text="Cidade" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnVoltar" layoutX="272.0" layoutY="353.0" mnemonicParsing="false" onAction="#voltarBtnHandler" text="Voltar" />
+   </children>
+</AnchorPane>
