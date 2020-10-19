@@ -6,11 +6,13 @@ import DistribuidoraDeGas.negocio.entidades.Produto;
 import DistribuidoraDeGas.negocio.excecoes.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -169,8 +171,15 @@ public class TelaVendaProdutosController implements Initializable {
         Pane venda;
         try {
             if(valorT > 0){
-                
+                Alert a = new Alert(Alert.AlertType.NONE);
+                a.setAlertType(Alert.AlertType.INFORMATION);
+                a.setContentText("Venda no valor total de R$"+valorT + " efetuada");
+                a.show();
             }
+            venda = FXMLLoader.load(getClass().getResource("../../views/venda/TelaAgendamentoEntrega.fxml"));
+            painelVendaProdutos.getChildren().setAll(venda);
+        }catch (IOException ex){
+            System.out.println(ex.getMessage());
         }
     }
 }
