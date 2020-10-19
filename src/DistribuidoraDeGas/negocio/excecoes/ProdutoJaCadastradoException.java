@@ -1,5 +1,11 @@
 package DistribuidoraDeGas.negocio.excecoes;
 
+/**
+ * Classe de exceção que lança o erro se o produto for cadastrado
+ *
+ * @author Letícia Araújo
+ */
+
 public class ProdutoJaCadastradoException extends Exception{
     private String id;
 
