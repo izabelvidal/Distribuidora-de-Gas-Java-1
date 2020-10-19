@@ -1,4 +1,7 @@
-package negocio.entidades;
+package DistribuidoraDeGas.negocio.entidades;
+
+import DistribuidoraDeGas.negocio.entidades.Cliente;
+import DistribuidoraDeGas.negocio.entidades.Produto;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
