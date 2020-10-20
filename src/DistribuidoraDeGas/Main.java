@@ -25,13 +25,13 @@ public class Main extends Application {
         stageMain.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ProdutoJaCadastradoException, NomeApenasLetrasException, PessoaJaCadastradaException, CpfTamanhoException, CpfApenasNumerosException, NomeTamanhoException, QuantidadeInvalidaException, PessoaInexistenteException, ProdutoInexistenteException {
         distribudora = new DistribuidoraDeGasFachada();
-        launch(args);
-        /*distribudora.cadastrarProduto("pirulito", "agsgasgag", "01", 32.2, 21, 1);
+        //launch(args);
+        distribudora.cadastrarProduto("pirulito", "agsgasgag", "01", 32.2, 21, 1);
         Endereco endereco = new Endereco("akjsjksjkd", 20, "hdhashuuhas", "djkdjkdsjdsjk", "mdsmkdmdm");
         distribudora.cadastrarCliente("aohushudshu", "12345678912", "21/10/2001", "52142214452", endereco, "comum");
         distribudora.venderProduto("01", 1, "12345678912");
-        */
+
     }
 }

@@ -104,11 +104,11 @@ public class TelaListarVendaDeProdutosController implements Initializable {
         tbNumero.setCellValueFactory(cliente -> new SimpleStringProperty(String.valueOf(cliente.getValue().getCliente().getEndereco().getNumero())));
         tbStatus.setCellValueFactory(new PropertyValueFactory<>("Status"));
         tbTipo.setCellValueFactory(cliente -> new SimpleStringProperty(cliente.getValue().getCliente().getTipo()));
-        */
-        preencherHistorico();
+
+        preencherHistorico();*/
     }
 
-    private void preencherHistorico(){
+   /* private void preencherHistorico(){
         ArrayList<Venda> vendas = Main.distribudora.consultarVendaProdutos();
         tbProduto.getItems().clear();
         tbVenda.getItems().clear();
@@ -149,7 +149,7 @@ public class TelaListarVendaDeProdutosController implements Initializable {
                     tbProduto.getItems().add(v);
                     tbVenda.getItems().add(v);
                 }
-            }*/
+            }
         }else if(dateSearch.getValue() != null){
             String data = date.format(formatter);
             ArrayList<Venda> venda = Main.distribudora.consultarVendaPorData(data);
@@ -173,5 +173,5 @@ public class TelaListarVendaDeProdutosController implements Initializable {
         }catch (IOException ex){
             System.out.println(ex.getMessage());
         }
-    }
+    }*/
 }
