@@ -11,21 +11,18 @@ import DistribuidoraDeGas.negocio.gerenciadores.*;
 import java.util.ArrayList;
 
 /**
- * Classe que se conecta com a interface gráfica
+ * Classe fachada. Representa todas as funcionalidades possíveis do sistema
  *
- * @author Letícia Araújo e Izabel Vidal
+ * @author Letícia Araújo
  */
-
 public class DistribuidoraDeGasFachada {
     private NegocioProduto negocioProduto;
-    private NegocioVenda negocioVenda;
     private NegocioGerente negocioGerente;
     private NegocioCliente negocioCliente;
     private NegocioPessoa negocioPessoa;
 
     public DistribuidoraDeGasFachada(){
-        this.negocioProduto = new NegocioProduto(new RepositorioProdutos(), new RepositorioCliente());
-        this.negocioVenda = new NegocioVenda(new RepositorioProdutosVendidos());
+        this.negocioProduto = new NegocioProduto(new RepositorioProdutos(),new RepositorioProdutosVendidos(), new RepositorioCliente());
         this.negocioGerente = new NegocioGerente(new RepositorioGerente());
         this.negocioCliente = new NegocioCliente(new RepositorioCliente());
         this.negocioPessoa = new NegocioPessoa(new RepositorioCliente(), new RepositorioGerente());
@@ -62,36 +59,36 @@ public class DistribuidoraDeGasFachada {
 
     //Inicio métodos Venda
     public ArrayList<Venda> consultarVendaProdutos(){
-        return this.negocioVenda.consultarVendaProdutos();
+        return this.negocioProduto.consultarVendaProdutos();
     }
 
     public ArrayList<Venda> consultarVendaPorData(String data){
-        return this.negocioVenda.consultarVendaPorData(data);
+        return this.negocioProduto.consultarVendaPorData(data);
     }
 
-    public ArrayList<Venda> consultarVendaPeloCliente(String cpf){
+   /* public ArrayList<Venda> consultarVendaPeloCliente(String cpf){
         return this.negocioVenda.consultarVendaCliente(cpf);
     }
 
     public ArrayList<Venda> consultarVendaClientePorData(String data, String cpf){
         return this.negocioVenda.consultarVendaClientePorData(cpf,data);
-    }
+    }*/
 
     public void marcarVendaConcluida(Venda v){
-        this.negocioVenda.marcarVendaConcluida(v);
+        this.negocioProduto.marcarVendaConcluida(v);
     }
 
     public void alterarVenda(Venda v, String data, String hora){
-        this.negocioVenda.alterarVenda(v,data,hora);
+        this.negocioProduto.alterarVenda(v,data,hora);
     }
 
     public ArrayList<String> consultarListaHorariosLivres(String data){
-        return this.negocioVenda.consultarHorariosDisponiveisPorData(data);
+        return this.negocioProduto.consultarHorariosDisponiveisPorData(data);
     }
 
-    public ArrayList<Venda> consultarVendasClienteNaoConcluida(String cpf){
+   /* public ArrayList<Venda> consultarVendasClienteNaoConcluida(String cpf){
         return this.negocioVenda.consultarVendasCLienteNaoConcluida(cpf);
-    }
+    }*/
     //Fim métodos venda
 
 

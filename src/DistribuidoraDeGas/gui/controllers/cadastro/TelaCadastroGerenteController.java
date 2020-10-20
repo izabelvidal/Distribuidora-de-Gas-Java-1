@@ -16,6 +16,11 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+/**
+ * FXML Controller class
+ * Essa classe faz a conexão entre a interface gráfica e a fachada.
+ * @author Letícia Araújo, Izabel Vidal
+ */
 public class TelaCadastroGerenteController implements Initializable {
     private Alert spam;
 
@@ -54,6 +59,9 @@ public class TelaCadastroGerenteController implements Initializable {
         spam = new Alert(Alert.AlertType.NONE);
     }
 
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         LocalDate maxDate = LocalDate.now();

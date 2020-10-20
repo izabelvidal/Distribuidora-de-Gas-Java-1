@@ -6,6 +6,12 @@ import DistribuidoraDeGas.dados.contratos.iRepositorioPessoa;
 
 import java.util.ArrayList;
 
+/**
+ * Essa classe implementa os métodos da interface iRepositorioPessoa
+ * Essa classe é responsável por armazenar e gerenciar a recuperação do Gerente
+ *
+ * @author Izabel Vidal
+ */
 public class RepositorioGerente implements iRepositorioPessoa {
     private ArrayList<Pessoa> gerentes;
 

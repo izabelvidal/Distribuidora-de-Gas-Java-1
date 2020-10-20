@@ -13,6 +13,11 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * FXML Controller class
+ * Essa classe faz a conexão entre a interface gráfica e a fachada.
+ * @author Letícia Araújo, Izabel Vidal
+ */
 public class TelaCadastroController implements Initializable {
     @FXML
     private Pane painelCadastro;

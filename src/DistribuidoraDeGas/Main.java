@@ -1,5 +1,8 @@
 package DistribuidoraDeGas;
 
+import DistribuidoraDeGas.negocio.entidades.Endereco;
+import DistribuidoraDeGas.negocio.entidades.Produto;
+import DistribuidoraDeGas.negocio.excecoes.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,8 +25,13 @@ public class Main extends Application {
         stageMain.show();
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         distribudora = new DistribuidoraDeGasFachada();
         launch(args);
+        /*distribudora.cadastrarProduto("pirulito", "agsgasgag", "01", 32.2, 21, 1);
+        Endereco endereco = new Endereco("akjsjksjkd", 20, "hdhashuuhas", "djkdjkdsjdsjk", "mdsmkdmdm");
+        distribudora.cadastrarCliente("aohushudshu", "12345678912", "21/10/2001", "52142214452", endereco, "comum");
+        distribudora.venderProduto("01", 1, "12345678912");
+        */
     }
 }

@@ -13,7 +13,11 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 
-
+/**
+ * FXML Controller class
+ * Essa classe faz a conexão entre a interface gráfica e a fachada.
+ * @author Letícia Araújo, Izabel Vidal
+ */
 public class MenuInicialController implements Initializable {
     @FXML
     private Pane painel;

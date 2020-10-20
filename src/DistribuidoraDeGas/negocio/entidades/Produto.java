@@ -71,9 +71,4 @@ public class Produto {
         this.preco = preco;
     }
 
-    @Override
-    public String toString() {
-        return "ID: " + this.id + "\nNome: " + this.nome + "\nMarca: " + this.marca +
-                "\nQuantidade: " + this.quantidade + "\nPeso: " + this.peso + "\nPreço: " + this.preco;
-    }
 }

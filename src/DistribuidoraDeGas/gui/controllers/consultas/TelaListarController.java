@@ -14,6 +14,11 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * FXML Controller class
+ * Essa classe faz a conexão entre a interface gráfica e a fachada.
+ * @author Letícia Araújo, Izabel Vidal
+ */
 public class TelaListarController implements Initializable {
     @FXML
     private Pane painelListar;
@@ -26,6 +31,9 @@ public class TelaListarController implements Initializable {
     @FXML
     private Button btnListaClientes;
 
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //TODO

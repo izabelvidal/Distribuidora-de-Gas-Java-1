@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="painelAlterarProdutos" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DistribuidoraDeGas.gui.controllers.alterar.TelaAlterarProdutosController">
+    <children>
+        <Label layoutX="94.0" layoutY="8.0" text="Alterar informações dos Produtos">
+            <font>
+                <Font name="System Bold" size="26.0" />
+            </font>
+        </Label>
+        <Label layoutX="263.0" layoutY="46.0" text="Insira o Id" />
+        <TextField fx:id="inputId" layoutX="213.0" layoutY="63.0">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <Button fx:id="btnBuscar" layoutX="368.0" layoutY="63.0" mnemonicParsing="false" onAction="#buscarBtnHandler" text="Buscar">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <Separator layoutY="95.0" prefHeight="0.0" prefWidth="600.0" />
+        <Label layoutX="197.0" layoutY="97.0" text="Informações do Produto">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <TableView fx:id="tbView" layoutX="54.0" layoutY="127.0" prefHeight="63.0" prefWidth="466.0">
+            <columns>
+                <TableColumn fx:id="tbNome" prefWidth="108.0" text="Nome" />
+                <TableColumn fx:id="tbMarca" prefWidth="94.0" text="Marca" />
+                <TableColumn fx:id="tbId" prefWidth="41.0" text="ID" />
+                <TableColumn fx:id="tbQntd" prefWidth="53.0" text="Qntd" />
+                <TableColumn fx:id="tbPeso" prefWidth="83.0" text="Peso" />
+            <TableColumn fx:id="tbPreco" prefWidth="86.0" text="Preço" />
+            </columns>
+        </TableView>
+        <Button fx:id="btnRemoverProduto" disable="true" layoutX="232.0" layoutY="200.0" mnemonicParsing="false" onAction="#removerProdutoBtnHandler" text="Remover Produto">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <Label layoutX="132.0" layoutY="275.0" text="Insira a nova quantidade" />
+        <TextField fx:id="inputQntd" layoutX="123.0" layoutY="300.0">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <Label layoutX="345.0" layoutY="275.0" text="Insira o novo preço" />
+        <TextField fx:id="inputPreco" layoutX="319.0" layoutY="300.0">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <Button fx:id="btnConfirmar" disable="true" layoutX="213.0" layoutY="347.0" mnemonicParsing="false" onAction="#confirmarBtnHandler" text="Confirmar">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <Button fx:id="btnCancelar" layoutX="304.0" layoutY="347.0" mnemonicParsing="false" onAction="#cancelarBtnHandler" text="Cancelar">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+    </children>
+</Pane>

@@ -18,6 +18,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 
+/**
+ * FXML Controller class
+ * Essa classe faz a conexão entre a interface gráfica e a fachada.
+ * @author Letícia Araújo, Izabel Vidal
+ */
 public class TelaCadastroClienteController implements Initializable {
     private Alert spam;
     private ObservableList<String> choicesList;
@@ -53,6 +58,10 @@ public class TelaCadastroClienteController implements Initializable {
         choicesList = FXCollections.observableArrayList("Comum", "Revendedor");
         spam = new Alert(Alert.AlertType.NONE);
     }
+
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         choiceTipo.setItems(choicesList);

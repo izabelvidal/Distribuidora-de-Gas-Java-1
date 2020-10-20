@@ -22,6 +22,11 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * FXML Controller class
+ * Essa classe faz a conexão entre a interface gráfica e a fachada.
+ * @author Letícia Araújo, Izabel Vidal
+ */
 public class TelaListarClienteController implements Initializable {
     private Alert spam;
     @FXML
@@ -61,6 +66,9 @@ public class TelaListarClienteController implements Initializable {
         spam = new Alert(Alert.AlertType.NONE);
     }
 
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //TODO

@@ -22,6 +22,11 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * FXML Controller class
+ * Essa classe faz a conexão entre a interface gráfica e a fachada.
+ * @author Letícia Araújo, Izabel Vidal
+ */
 public class TelaAgendamentoEntregaController implements Initializable {
     private String dataAtual;
     private DateTimeFormatter formatter;
@@ -48,7 +53,9 @@ public class TelaAgendamentoEntregaController implements Initializable {
         this.dataAtual = sdfData.format(gc.getTime());
     }
 
-
+    /**
+     * Initializes the controller class
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //TODO

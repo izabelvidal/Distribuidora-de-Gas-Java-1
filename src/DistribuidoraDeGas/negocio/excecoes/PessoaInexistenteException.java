@@ -4,7 +4,7 @@ public class PessoaInexistenteException extends Exception {
     private String cpf;
 
     public PessoaInexistenteException(String cpf){
-        super("Produto já cadastrado com ID: " + cpf);
+        super("Nenhuma pessoa cadastrada com o CPF: " + cpf);
         this.cpf = cpf;
     }
 
