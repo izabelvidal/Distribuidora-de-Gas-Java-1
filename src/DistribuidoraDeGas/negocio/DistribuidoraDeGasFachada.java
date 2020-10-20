@@ -62,9 +62,9 @@ public class DistribuidoraDeGasFachada {
         return this.negocioProduto.consultarVendaProdutos();
     }
 
-    public ArrayList<Venda> consultarVendaPorData(String data){
+   /* public ArrayList<Venda> consultarVendaPorData(String data){
         return this.negocioProduto.consultarVendaPorData(data);
-    }
+    }*/
 
    /* public ArrayList<Venda> consultarVendaPeloCliente(String cpf){
         return this.negocioVenda.consultarVendaCliente(cpf);
@@ -74,7 +74,7 @@ public class DistribuidoraDeGasFachada {
         return this.negocioVenda.consultarVendaClientePorData(cpf,data);
     }*/
 
-    public void marcarVendaConcluida(Venda v){
+  /*  public void marcarVendaConcluida(Venda v){
         this.negocioProduto.marcarVendaConcluida(v);
     }
 
@@ -82,9 +82,9 @@ public class DistribuidoraDeGasFachada {
         this.negocioProduto.alterarVenda(v,data,hora);
     }
 
-    public ArrayList<String> consultarListaHorariosLivres(String data){
+  /*  public ArrayList<String> consultarListaHorariosLivres(String data){
         return this.negocioProduto.consultarHorariosDisponiveisPorData(data);
-    }
+    }*/
 
    /* public ArrayList<Venda> consultarVendasClienteNaoConcluida(String cpf){
         return this.negocioVenda.consultarVendasCLienteNaoConcluida(cpf);
