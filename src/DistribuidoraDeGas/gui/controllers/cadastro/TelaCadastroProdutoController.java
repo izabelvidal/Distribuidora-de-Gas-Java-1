@@ -15,6 +15,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * FXML Controller class
+ * Essa classe faz a conexão entre a interface gráfica e a fachada.
+ * @author Letícia Araújo, Izabel Vidal
+ */
 public class TelaCadastroProdutoController implements Initializable {
     @FXML
     private Pane painelCadastroProdutos;
@@ -35,6 +40,9 @@ public class TelaCadastroProdutoController implements Initializable {
     @FXML
     private TextField inputDigitePeso;
 
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //TODO

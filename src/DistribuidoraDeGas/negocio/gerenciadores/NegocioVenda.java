@@ -1,20 +1,13 @@
 package DistribuidoraDeGas.negocio.gerenciadores;
 
 import DistribuidoraDeGas.dados.RepositorioProdutosVendidos;
-import DistribuidoraDeGas.dados.contratos.iRepositorioProdutosVendidos;
 import DistribuidoraDeGas.negocio.entidades.Venda;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class NegocioVenda {
-    private static RepositorioProdutosVendidos repositorioProdutosVendidos2;
-    private iRepositorioProdutosVendidos repositorioProdutosVendidos;
-
-    public NegocioVenda(iRepositorioProdutosVendidos repositorioProdVendidos){
-        this.repositorioProdutosVendidos = repositorioProdVendidos;
-    }
-
+/*
     public static void registarVenda(Venda venda){
         repositorioProdutosVendidos2.adicionarVenda(venda);
     }
@@ -42,7 +35,7 @@ public class NegocioVenda {
         return this.repositorioProdutosVendidos.consultarVendaPeloCliente(cpf);
     }
 
-    public ArrayList<Venda> consultarVendasCLienteNaoConcluida(String cpf){
+   public ArrayList<Venda> consultarVendasCLienteNaoConcluida(String cpf){
         ArrayList<Venda> vendaCliente = this.repositorioProdutosVendidos.consultarVendaPeloCliente(cpf);
         ArrayList<Venda> vendas = new ArrayList<>();
 
@@ -63,7 +56,7 @@ public class NegocioVenda {
         gc.add(Calendar.HOUR,-1);
         String dataAtual = sdfData.format(gc.getTime());
 
-        ArrayList<String> listaHoras = new ArrayList<String>(Arrays.asList("08:00", "09:00", "10:00", "11:00", "12:00", "11:00"));
+        ArrayList<String> listaHoras = new ArrayList<String>(Arrays.asList("08:00", "09:00", "10:00", "11:00", "12:00"));
 
         GregorianCalendar horaTemp = new GregorianCalendar();
         ArrayList<String> horasRemovidasTemp = new ArrayList<>();
@@ -85,7 +78,7 @@ public class NegocioVenda {
         return listaHoras;
     }
 
-    public ArrayList<Venda> consultarVendaClientePorData(String cpf, String data){
+   public ArrayList<Venda> consultarVendaClientePorData(String cpf, String data){
         ArrayList<Venda> vendaPorData = this.repositorioProdutosVendidos.consultarVendaPorData(data);
         ArrayList<Venda> vendaClientePorData = new ArrayList<>();
 
@@ -95,5 +88,5 @@ public class NegocioVenda {
             }
         }
         return vendaClientePorData;
-    }
+    }*/
 }

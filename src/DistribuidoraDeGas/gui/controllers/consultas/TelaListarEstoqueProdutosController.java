@@ -18,9 +18,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * FXML Controller class
+ * Essa classe faz a conexão entre a interface gráfica e a fachada.
+ * @author Letícia Araújo, Izabel Vidal
+ */
 public class TelaListarEstoqueProdutosController implements Initializable {
     @FXML
-    private AnchorPane painelEstoqueProdutos;
+    private Pane painelEstoqueProdutos;
     @FXML
     private TableView<Produto> tbView;
     @FXML
@@ -38,12 +43,15 @@ public class TelaListarEstoqueProdutosController implements Initializable {
     @FXML
     private Button btnVoltar;
 
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //TODO
-        tbId.setCellValueFactory(new PropertyValueFactory<>("ID"));
         tbNome.setCellValueFactory(new PropertyValueFactory<>("Nome"));
         tbMarca.setCellValueFactory(new PropertyValueFactory<>("Marca"));
+        tbId.setCellValueFactory(new PropertyValueFactory<>("Id"));
         tbQtd.setCellValueFactory(new PropertyValueFactory<>("Quantidade"));
         tbPeso.setCellValueFactory(new PropertyValueFactory<>("Peso"));
         tbPreco.setCellValueFactory(new PropertyValueFactory<>("Preco"));

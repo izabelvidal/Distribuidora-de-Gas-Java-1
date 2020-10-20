@@ -7,7 +7,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane fx:id="painelEstoqueProdutos" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DistribuidoraDeGas.gui.controllers.consultas.TelaListarEstoqueProdutosController">
    <children>
       <Label layoutX="192.0" layoutY="14.0" text="Estoque Produtos">
@@ -17,9 +16,9 @@
       </Label>
       <TableView fx:id="tbView" layoutY="61.0" prefHeight="293.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="tbId" prefWidth="56.0" text="ID" />
-          <TableColumn fx:id="tbNome" prefWidth="154.0" text="Nome" />
-            <TableColumn fx:id="tbMarca" prefWidth="146.0" text="Marca" />
+          <TableColumn fx:id="tbNome" prefWidth="165.0" text="Nome" />
+          <TableColumn fx:id="tbMarca" prefWidth="141.0" text="Marca" />
+            <TableColumn fx:id="tbId" prefWidth="50.0" text="ID" />
             <TableColumn fx:id="tbQtd" prefWidth="78.0" text="Quantidade" />
             <TableColumn fx:id="tbPeso" prefWidth="87.0" text="Peso" />
             <TableColumn fx:id="tbPreco" prefWidth="78.0" text="Preço" />

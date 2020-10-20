@@ -68,7 +68,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Button fx:id="btnBuscarCliente" layoutX="389.0" layoutY="84.0" mnemonicParsing="false" onAction="#buscarBtnHandler" text="Buscar">
+      <Button fx:id="btnBuscarCliente" layoutX="389.0" layoutY="84.0" mnemonicParsing="false" onAction="#buscarClienteBtnHandler" text="Buscar">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

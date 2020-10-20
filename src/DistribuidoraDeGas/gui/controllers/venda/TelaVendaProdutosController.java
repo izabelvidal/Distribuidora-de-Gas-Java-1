@@ -16,6 +16,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * FXML Controller class
+ * Essa classe faz a conexão entre a interface gráfica e a fachada.
+ * @author Letícia Araújo, Izabel Vidal
+ */
 public class TelaVendaProdutosController implements Initializable {
     private double valorT;
     private Produto ultimoProdutoPesquisado;
@@ -64,16 +69,14 @@ public class TelaVendaProdutosController implements Initializable {
     @FXML
     private TextField inputCpf;
 
-    /**
-     * Initializes the controller class.
-     */
-
     public TelaVendaProdutosController(){
         this.valorT = 0.0;
         spam = new Alert(Alert.AlertType.NONE);
     }
 
-
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //TODO
@@ -92,13 +95,12 @@ public class TelaVendaProdutosController implements Initializable {
     @FXML
     public void buscarBtnHandler(ActionEvent event) {
         tbView.getItems().removeAll(ultimoProdutoPesquisado);
-        if((inputId.getText().length()>0) && (inputCpf.getLength()>0)){
+        if(inputId.getText().length()>0){
             try {
                 ultimoProdutoPesquisado = Main.distribudora.consultarProduto(inputId.getText());
-                cliente = Main.distribudora.consultarCliente(inputCpf.getText());
                 tbView.getItems().add(ultimoProdutoPesquisado); //Insere produto na tabela de visualizacao
                 btnVender.setDisable(false);
-            }catch (PessoaInexistenteException | ProdutoInexistenteException e){
+            }catch (ProdutoInexistenteException e){
                 Alert a = new Alert(Alert.AlertType.NONE);
                 a.setAlertType(Alert.AlertType.ERROR);
                 a.setContentText(e.getMessage());
@@ -136,7 +138,7 @@ public class TelaVendaProdutosController implements Initializable {
 
             btnVender.setDisable(true);
             inputId.setText("");
-            inputCpf.setText("");
+            //inputCpf.setText("");
             inputqtd.setText("1");
         }
     }
@@ -186,5 +188,21 @@ public class TelaVendaProdutosController implements Initializable {
             System.out.println(ex.getMessage());
         }
     }
+
+   /* @FXML
+    public void buscarClienteBtnHandler(ActionEvent event) {
+        if(inputCpf.getLength()>0){
+            try{
+                Main.distribudora.consultarCliente(inputCpf.getText());
+            }catch (PessoaInexistenteException e){
+                spam.setAlertType(Alert.AlertType.ERROR);
+                spam.setContentText(e.getMessage());
+                spam.show();
+                tbView.getItems().clear();
+            }
+        }else {
+            tbView.getItems().clear();
+        }
+    }*/
 }
 
