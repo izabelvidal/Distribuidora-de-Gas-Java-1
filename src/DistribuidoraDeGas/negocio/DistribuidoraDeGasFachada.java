@@ -57,7 +57,7 @@ public class DistribuidoraDeGasFachada {
     }
     //Fim métodos Produto
 
-    //Inicio métodos Venda
+  /*  //Inicio métodos Venda
     public ArrayList<Venda> consultarVendaProdutos(){
         return this.negocioProduto.consultarVendaProdutos();
     }
