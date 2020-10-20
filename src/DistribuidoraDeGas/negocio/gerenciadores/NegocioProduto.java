@@ -12,7 +12,8 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * Essa classe aplica as regras de negócio e o gerenciamento do Produto no sistema
+ * Essa classe aplica as regras de negócio e o gerenciamento do Produto no sistema.
+ *
  *
  * @author Letícia Araújo
  */
