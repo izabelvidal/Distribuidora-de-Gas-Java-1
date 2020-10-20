@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="painelListaVenda" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DistribuidoraDeGas.gui.controllers.consultas.TelaListarVendaDeProdutosController">
+    <children>
+        <Label layoutX="167.0" text="Histórico de Venda">
+            <font>
+                <Font name="System Bold" size="26.0" />
+            </font>
+        </Label>
+        <TextField fx:id="inputCpf" layoutX="14.0" layoutY="55.0" promptText="Insira o CPF">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <DatePicker fx:id="dateSearch" layoutX="182.0" layoutY="55.0" promptText="Buscar por data">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></DatePicker>
+        <Label ellipsisString="" layoutX="25.0" layoutY="38.0" prefHeight="17.0" prefWidth="99.0" text="Buscar por cliente" />
+        <Button fx:id="btnBuscar" layoutX="382.0" layoutY="55.0" mnemonicParsing="false" onAction="#buscarBtnHandler" text="Buscar">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <TableView fx:id="tbProduto" layoutX="-1.0" layoutY="106.0" prefHeight="84.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="tbId" prefWidth="54.0" text="Id" />
+                <TableColumn fx:id="tbNomeProduto" prefWidth="167.0" text="Nome" />
+                <TableColumn fx:id="tbMarca" prefWidth="127.0" text="Marca" />
+                <TableColumn fx:id="tbQnt" prefWidth="51.0" text="Qtd" />
+                <TableColumn fx:id="tbPeso" prefWidth="88.0" text="Peso" />
+                <TableColumn fx:id="tbPreco" prefWidth="112.0" text="Preco" />
+            </columns>
+        </TableView>
+        <Button fx:id="btnVoltar" layoutX="283.0" layoutY="367.0" mnemonicParsing="false" onAction="#voltarBtnHandler" text="Voltar">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+      <TableView fx:id="tbVenda" layoutY="200.0" prefHeight="100.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="tbCpf" prefWidth="75.0" text="CPF" />
+            <TableColumn fx:id="tbRua" prefWidth="75.0" text="Rua" />
+            <TableColumn fx:id="tbBairro" prefWidth="75.0" text="Bairro" />
+            <TableColumn fx:id="tbNumero" prefWidth="75.0" text="Número" />
+          <TableColumn fx:id="tbData" prefWidth="75.0" text="Data" />
+          <TableColumn fx:id="tbHora" prefWidth="75.0" text="Hora" />
+            <TableColumn fx:id="tbStatus" prefWidth="75.0" text="Status" />
+            <TableColumn fx:id="tbTipo" prefWidth="75.0" text="Tipo Cliente" />
+        </columns>
+      </TableView>
+    </children>
+</Pane>
