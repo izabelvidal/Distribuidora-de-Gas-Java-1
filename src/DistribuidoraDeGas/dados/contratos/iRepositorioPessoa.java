@@ -2,6 +2,7 @@ package DistribuidoraDeGas.dados.contratos;
 
 import DistribuidoraDeGas.negocio.entidades.Pessoa;
 import DistribuidoraDeGas.negocio.excecoes.PessoaInexistenteException;
+import DistribuidoraDeGas.negocio.excecoes.PessoaJaCadastradaException;
 
 import java.util.ArrayList;
 /**
@@ -10,7 +11,7 @@ import java.util.ArrayList;
  * @author Izabel Vidal
  */
 public interface iRepositorioPessoa {
-    void adicionarPessoa(Pessoa pessoa);
+    void adicionarPessoa(Pessoa pessoa) throws PessoaJaCadastradaException;
     void removerPessoa(String cpf) throws PessoaInexistenteException;
     Pessoa getPessoa(String cpf) throws PessoaInexistenteException;
     void atualizarPessoa(Pessoa pessoa);

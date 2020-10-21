@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="painelAlterar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DistribuidoraDeGas.gui.controllers.alterar.TelaAlterarClienteController">
+    <children>
+        <Button fx:id="btnBuscar" layoutX="378.0" layoutY="65.0" mnemonicParsing="false" onAction="#buscarCpfBtnHandler" text="Buscar">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <TextField fx:id="inputCpf" layoutX="226.0" layoutY="65.0">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <Label layoutX="206.0" text="Alterar Clientes">
+            <font>
+                <Font name="System Bold" size="26.0" />
+            </font>
+        </Label>
+        <Label layoutX="265.0" layoutY="45.0" text="Insira seu cpf" />
+        <TextField fx:id="inputAlteraTell" layoutX="229.0" layoutY="150.0">
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor></TextField>
+        <Separator layoutY="95.0" prefHeight="1.0" prefWidth="600.0" />
+        <Label fx:id="alterarInformacoes" layoutX="242.0" layoutY="98.0" text="Alterar Informações">
+            <font>
+                <Font size="19.0" />
+            </font>
+        </Label>
+        <Label layoutX="128.0" layoutY="154.0" text="Telefone atual:" />
+        <Button fx:id="btnTrocarTell" disable="true" layoutX="404.0" layoutY="150.0" mnemonicParsing="false" onAction="#trocarTellBtnHandler" text="Trocar">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <Button fx:id="btnVoltar" layoutX="523.0" layoutY="354.0" mnemonicParsing="false" onAction="#voltarBtnHandler" text="Voltar">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+      <TextField fx:id="inputAlteraRua" layoutX="229.0" layoutY="188.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Label layoutX="153.0" layoutY="192.0" text="Rua atual:" />
+      <Button fx:id="btnTrocarRua" disable="true" layoutX="404.0" layoutY="188.0" mnemonicParsing="false" onAction="#trocarRuaBtnHandler" text="Trocar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TextField fx:id="inputAlteraBairro" layoutX="229.0" layoutY="222.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Label layoutX="140.0" layoutY="225.0" text="Bairro atual:" />
+      <Button fx:id="btnTrocarBairro" disable="true" layoutX="404.0" layoutY="222.0" mnemonicParsing="false" onAction="#trocarBairroBtnHandler" text="Trocar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TextField fx:id="inputAlteraNumero" layoutX="229.0" layoutY="256.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Label layoutX="129.0" layoutY="260.0" text="Número atual:" />
+      <Button fx:id="btnTrocarNumero" disable="true" layoutX="404.0" layoutY="256.0" mnemonicParsing="false" onAction="#trocarNumeroBtnHandler" text="Trocar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TextField fx:id="inputAlterarCidade" layoutX="229.0" layoutY="291.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <TextField fx:id="inputAlteraEstado" layoutX="229.0" layoutY="326.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Label layoutX="136.0" layoutY="295.0" text="Cidade atual:" />
+      <Label layoutX="137.0" layoutY="330.0" text="Estado atual:" />
+      <Button fx:id="btnTrocarCidade" disable="true" layoutX="404.0" layoutY="291.0" mnemonicParsing="false" onAction="#trocarCidadeBtnHandler" text="Trocar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnTrocarEstado" disable="true" layoutX="404.0" layoutY="326.0" mnemonicParsing="false" onAction="#trocarEstadoBtnHandler" text="Trocar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+    </children>
+</Pane>

@@ -120,13 +120,7 @@ public class TelaCadastroGerenteController implements Initializable {
 
     @FXML
     public void cancelarBtnHandler(ActionEvent event) {
-        Pane cadastro;
-        try{
-            cadastro = FXMLLoader.load(getClass().getResource("../../views/cadastro/TelaCadastro.fxml"));
-            painelCadastroGerente.getChildren().setAll(cadastro);
-        }catch (IOException ex){
-            System.out.println(ex.getMessage());
-        }
+        System.exit(0);
     }
 
     private void limparCampos(){
@@ -144,5 +138,14 @@ public class TelaCadastroGerenteController implements Initializable {
         dataNascimento.setValue(null);
     }
 
-
+    @FXML
+    public void menuBtnHandler(ActionEvent event) {
+        Pane cadastro;
+        try{
+            cadastro = FXMLLoader.load(getClass().getResource("../../views/MenuInicial.fxml"));
+            painelCadastroGerente.getChildren().setAll(cadastro);
+        }catch (IOException ex){
+            System.out.println(ex.getMessage());
+        }
+    }
 }

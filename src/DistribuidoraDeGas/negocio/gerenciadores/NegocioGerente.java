@@ -1,6 +1,7 @@
 package DistribuidoraDeGas.negocio.gerenciadores;
 
 import DistribuidoraDeGas.dados.RepositorioGerente;
+import DistribuidoraDeGas.negocio.entidades.Cliente;
 import DistribuidoraDeGas.negocio.entidades.Endereco;
 import DistribuidoraDeGas.negocio.entidades.Gerente;
 import DistribuidoraDeGas.negocio.entidades.Pessoa;
@@ -20,15 +21,6 @@ public class NegocioGerente{
             throw new PessoaJaCadastradaException(gerente.getCpf());
         }else{
             this.repGerente.adicionarPessoa(gerente);
-        }
-    }
-
-    public void validarSenha(Gerente gerente) throws SenhaTamanhoException, SenhaCaracteresInvalidosException {
-        if(gerente.getSenha().length() < 8 ){
-            throw new SenhaTamanhoException(gerente.getSenha());
-        }
-        if(!gerente.getSenha().matches("[a-zA-Z_0-9]")){
-            throw new SenhaCaracteresInvalidosException(gerente.getSenha());
         }
     }
 
@@ -62,17 +54,34 @@ public class NegocioGerente{
         this.repGerente.atualizarPessoa(gerente);
     }
 
-    public void atualizarEndereco(Endereco endereco, Gerente gerente, String rua, int numero, String bairro, String cidade, String estado){
+    public void atualizarRua(String rua, Gerente gerente, Endereco endereco){
         endereco.setRua(rua);
-        endereco.setNumero(numero);
+        gerente.setEndereco(endereco);
+        this.repGerente.atualizarPessoa(gerente);
+    }
+
+    public void atualizarBairro(String bairro, Gerente gerente, Endereco endereco){
         endereco.setBairro(bairro);
+        gerente.setEndereco(endereco);
+        this.repGerente.atualizarPessoa(gerente);
+    }
+    public void atualizarNumero(int numero, Gerente gerente, Endereco endereco){
+        endereco.setNumero(numero);
+        gerente.setEndereco(endereco);
+        this.repGerente.atualizarPessoa(gerente);
+    }
+    public void atualizarCidade(String cidade, Gerente gerente, Endereco endereco){
         endereco.setCidade(cidade);
+        gerente.setEndereco(endereco);
+        this.repGerente.atualizarPessoa(gerente);
+    }
+    public void atualizarEstado(String estado, Gerente gerente, Endereco endereco){
         endereco.setEstado(estado);
         gerente.setEndereco(endereco);
         this.repGerente.atualizarPessoa(gerente);
     }
 
-    public Pessoa consultarGerente(String cpf) throws PessoaInexistenteException {
-        return this.repGerente.getPessoa(cpf);
+    public Gerente consultarGerente(String cpf) throws PessoaInexistenteException {
+        return (Gerente) this.repGerente.getPessoa(cpf);
     }
 }

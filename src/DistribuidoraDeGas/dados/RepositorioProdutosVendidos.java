@@ -22,7 +22,7 @@ public class RepositorioProdutosVendidos {
         this.produtosVendidos.add(produtoVendido);
     }
 
-    public ArrayList<Venda> consultarVendaPorData(String data) {
+    public ArrayList<Venda> consultarVendasPorData(String data) {
         ArrayList<Venda> produtosV = new ArrayList<>();
 
         for(Venda v: this.produtosVendidos){
@@ -49,19 +49,24 @@ public class RepositorioProdutosVendidos {
         this.produtosVendidos.set(index,produtoVendido);
     }
 
-   // @Override
-   /* public ArrayList<Venda> consultarVendaPeloCliente(String cpf) {
+   public ArrayList<Venda> consultarVendaPeloProduto(String id) {
         ArrayList<Venda> vendaDoCliente = new ArrayList<>();
 
         for(Venda v: this.produtosVendidos){
-            if(v.getCliente().getCpf().equals(cpf)){
+            if(v.getProduto().getId().equals(id)){
                 vendaDoCliente.add(v);
             }
         }
         return vendaDoCliente;
-    }*/
+    }
 
     public ArrayList<Venda> consultarVendas() {
         return this.produtosVendidos;
     }
+
+    public void removerVenda(Venda venda){
+        this.produtosVendidos.remove(venda);
+    }
+
+
 }

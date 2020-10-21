@@ -1,5 +1,7 @@
 package DistribuidoraDeGas;
 
+import DistribuidoraDeGas.dados.RepositorioCliente;
+import DistribuidoraDeGas.negocio.entidades.Cliente;
 import DistribuidoraDeGas.negocio.entidades.Endereco;
 import DistribuidoraDeGas.negocio.entidades.Produto;
 import DistribuidoraDeGas.negocio.excecoes.*;
@@ -16,7 +18,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("gui/views/MenuInicial.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("gui/views/cadastro/TelaCadastroGerente.fxml"));
         stageMain = stage;
         Scene scene = new Scene(root);
 
@@ -28,10 +30,5 @@ public class Main extends Application {
     public static void main(String[] args) {
         distribudora = new DistribuidoraDeGasFachada();
         launch(args);
-        /*distribudora.cadastrarProduto("pirulito", "agsgasgag", "01", 32.2, 21, 1);
-        Endereco endereco = new Endereco("akjsjksjkd", 20, "hdhashuuhas", "djkdjkdsjdsjk", "mdsmkdmdm");
-        distribudora.cadastrarCliente("aohushudshu", "12345678912", "21/10/2001", "52142214452", endereco, "comum");
-        distribudora.venderProduto("01", 1, "12345678912");
-        */
     }
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="painelAlterarVenda" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DistribuidoraDeGas.gui.controllers.alterar.TelaAlterarVendaController">
+    <children>
+        <Label layoutX="193.0" text="Alterar Venda">
+            <font>
+                <Font name="Arial Black" size="26.0" />
+            </font>
+        </Label>
+        <DatePicker fx:id="dataAlterar" layoutX="350.0" layoutY="259.0" onAction="#changeDataHandler" promptText="Alterar Data" />
+        <Button fx:id="btnAlterar" disable="true" layoutX="219.0" layoutY="361.0" mnemonicParsing="false" onAction="#alterarBtnHandler" text="Alterar" />
+        <Button fx:id="btnRemoverVenda" layoutX="270.0" layoutY="165.0" mnemonicParsing="false" onAction="#removerVendaBtnHandler" text="Remover venda" />
+        <TextField fx:id="inputId" layoutX="13.0" layoutY="56.0" />
+        <Button fx:id="btnBuscar" layoutX="62.0" layoutY="87.0" mnemonicParsing="false" onAction="#buscarBtnHandler" text="Buscar" />
+        <TableView fx:id="tbVendaview" layoutX="165.0" layoutY="38.0" prefHeight="123.0" prefWidth="434.0">
+            <columns>
+                <TableColumn fx:id="tbNome" prefWidth="139.0" text="Nome" />
+                <TableColumn fx:id="tbId" prefWidth="133.0" text="Id" />
+                <TableColumn fx:id="tbData" prefWidth="94.0" text="Data" />
+                <TableColumn fx:id="tbHora" prefWidth="67.0" text="Hora" />
+            </columns>
+        </TableView>
+        <Separator layoutX="-2.0" layoutY="200.0" prefHeight="2.0" prefWidth="609.0" />
+        <Label layoutX="57.0" layoutY="39.0" text="Insira o Id" />
+        <Button fx:id="btnCancelar" layoutX="320.0" layoutY="361.0" mnemonicParsing="false" onAction="#cancelarBtnHandler" text="Cancelar" />
+        <Button fx:id="btnMarcarConcluido" layoutX="407.0" layoutY="165.0" mnemonicParsing="false" onAction="#marcarConcluidoBtnHandler" text="Marcar como concluido" />
+        <Label layoutX="203.0" layoutY="200.0" text="Lista de horários/Datas">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+        <Label layoutX="379.0" layoutY="238.0" text="Selecione a nova data" />
+        <Label layoutX="110.0" layoutY="229.0" text="Selecione um horário" />
+        <ChoiceBox fx:id="choiceHorario" layoutX="93.0" layoutY="259.0" prefWidth="150.0" />
+    </children>
+</Pane>

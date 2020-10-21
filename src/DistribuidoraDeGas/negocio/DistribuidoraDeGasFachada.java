@@ -22,7 +22,7 @@ public class DistribuidoraDeGasFachada {
     private NegocioPessoa negocioPessoa;
 
     public DistribuidoraDeGasFachada(){
-        this.negocioProduto = new NegocioProduto(new RepositorioProdutos(),new RepositorioProdutosVendidos(), new RepositorioCliente());
+        this.negocioProduto = new NegocioProduto(new RepositorioProdutos(),new RepositorioProdutosVendidos(), new RepositorioCliente(), new RepositorioCliente());
         this.negocioGerente = new NegocioGerente(new RepositorioGerente());
         this.negocioCliente = new NegocioCliente(new RepositorioCliente());
         this.negocioPessoa = new NegocioPessoa(new RepositorioCliente(), new RepositorioGerente());
@@ -57,24 +57,20 @@ public class DistribuidoraDeGasFachada {
     }
     //Fim métodos Produto
 
-  /*  //Inicio métodos Venda
+    //Inicio métodos Venda
     public ArrayList<Venda> consultarVendaProdutos(){
         return this.negocioProduto.consultarVendaProdutos();
     }
 
-   /* public ArrayList<Venda> consultarVendaPorData(String data){
+   public ArrayList<Venda> consultarVendaPorData(String data){
         return this.negocioProduto.consultarVendaPorData(data);
-    }*/
-
-   /* public ArrayList<Venda> consultarVendaPeloCliente(String cpf){
-        return this.negocioVenda.consultarVendaCliente(cpf);
     }
 
     public ArrayList<Venda> consultarVendaClientePorData(String data, String cpf){
-        return this.negocioVenda.consultarVendaClientePorData(cpf,data);
-    }*/
+        return this.negocioProduto.consultarVendaClientePorData(cpf,data);
+    }
 
-  /*  public void marcarVendaConcluida(Venda v){
+    public void marcarVendaConcluida(Venda v){
         this.negocioProduto.marcarVendaConcluida(v);
     }
 
@@ -82,13 +78,17 @@ public class DistribuidoraDeGasFachada {
         this.negocioProduto.alterarVenda(v,data,hora);
     }
 
-  /*  public ArrayList<String> consultarListaHorariosLivres(String data){
+   public ArrayList<String> consultarListaHorariosLivres(String data){
         return this.negocioProduto.consultarHorariosDisponiveisPorData(data);
-    }*/
+    }
 
-   /* public ArrayList<Venda> consultarVendasClienteNaoConcluida(String cpf){
-        return this.negocioVenda.consultarVendasCLienteNaoConcluida(cpf);
-    }*/
+   public ArrayList<Venda> consultarVendasNaoConcluida(String id){
+        return this.negocioProduto.consultarVendasNaoConcluida(id);
+    }
+
+    public void desmarcarVenda(Venda v){
+        this.negocioProduto.removerVenda(v);
+    }
     //Fim métodos venda
 
 
@@ -98,17 +98,43 @@ public class DistribuidoraDeGasFachada {
         this.validarNome(gerente);
         this.validarCpf(gerente);
         this.validarCnpj(gerente);
-        this.validarSenha(gerente);
         this.negocioGerente.adicionarGerente(gerente);
     }
 
+    public void atualizarTelefoneGerente(Gerente gerente, String telefone){
+        this.negocioGerente.alterarTelefone(gerente,telefone);
+    }
 
-    public void atualizarGerente(String cpf, String telefone, Endereco endereco, String rua, int numero, String bairro, String cidade, String estado, String email, String senha) throws PessoaInexistenteException {
-        Gerente gerente = (Gerente) negocioGerente.consultarGerente(cpf);
-        this.negocioGerente.alterarTelefone(gerente, telefone);
-        this.negocioGerente.alterarEmail(gerente, email);
-        this.negocioGerente.alterarSenha(gerente, senha);
-        this.negocioGerente.atualizarEndereco(endereco, gerente, rua, numero, bairro, cidade, estado);
+    public void atualizarRuaGerente(Gerente gerente,Endereco endereco, String rua){
+        this.negocioGerente.atualizarRua(rua,gerente,endereco);
+    }
+
+    public void atualizarBairroGerente(String bairro, Gerente gerente, Endereco endereco){
+        this.negocioGerente.atualizarBairro(bairro,gerente,endereco);
+    }
+
+    public void atualizarNumeroGerenete(int numero, Gerente gerente, Endereco endereco){
+        this.negocioGerente.atualizarNumero(numero,gerente,endereco);
+    }
+
+    public void atualizarCidadeGerente(String cidade, Gerente gerente, Endereco endereco){
+        this.negocioGerente.atualizarCidade(cidade,gerente,endereco);
+    }
+
+    public void atualizarEstadoGerente(String estado, Gerente gerente, Endereco endereco){
+        this.negocioGerente.atualizarEstado(estado,gerente,endereco);
+    }
+
+    public void atualizarEmail(String email, Gerente gerente){
+        this.negocioGerente.alterarEmail(gerente,email);
+    }
+
+    public void atualizarSenha(String senha, Gerente gerente){
+        this.negocioGerente.alterarSenha(gerente,senha);
+    }
+
+    public Gerente consultarGerente(String cpf) throws PessoaInexistenteException {
+        return this.negocioGerente.consultarGerente(cpf);
     }
 
     //cliente
@@ -119,11 +145,24 @@ public class DistribuidoraDeGasFachada {
         this.negocioCliente.adicionarCliente(cliente);
     }
 
-    public void atualizarCliente(String cpf, String telefone, Endereco endereco, String rua, int numero, String bairro, String cidade, String estado, String tipo) throws PessoaInexistenteException {
-        Cliente cliente = negocioCliente.consultarCliente(cpf);
-        this.negocioCliente.alterarTipoCliente(cliente, tipo);
-        this.negocioCliente.alterarTelefone(cliente, telefone);
-        this.negocioCliente.atualizarEndereco(endereco, cliente, rua, numero, bairro, cidade, estado);
+    public void atualizarTelefoneCliente(Cliente cliente, String telefone){
+        this.negocioCliente.alterarTelefone(cliente,telefone);
+    }
+
+    public void atualizarRua(Cliente cliente,Endereco endereco, String rua){
+        this.negocioCliente.atualizarRua(rua,cliente,endereco);
+    }
+    public void atualizarBairro(String bairro, Cliente cliente, Endereco endereco){
+        this.negocioCliente.atualizarBairro(bairro,cliente,endereco);
+    }
+    public void atualizarNumero(int numero, Cliente cliente, Endereco endereco){
+        this.negocioCliente.atualizarNumero(numero,cliente,endereco);
+    }
+    public void atualizarCidade(String cidade, Cliente cliente, Endereco endereco){
+        this.negocioCliente.atualizarCidade(cidade,cliente,endereco);
+    }
+    public void atualizarEstado(String estado, Cliente cliente, Endereco endereco){
+        this.negocioCliente.atualizarEstado(estado,cliente,endereco);
     }
 
     public Cliente consultarCliente(String cpf) throws PessoaInexistenteException {
@@ -141,9 +180,5 @@ public class DistribuidoraDeGasFachada {
 
     public void validarCnpj(Gerente gerente) throws CnpjTamanhoException, CnpjApenasNumerosException{
         this.negocioGerente.validarCnpj(gerente);
-    }
-
-    public void validarSenha(Gerente gerente) throws SenhaTamanhoException, SenhaCaracteresInvalidosException {
-        this.negocioGerente.validarSenha(gerente);
     }
 }

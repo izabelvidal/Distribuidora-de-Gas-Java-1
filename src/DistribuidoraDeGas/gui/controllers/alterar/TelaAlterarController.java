@@ -5,7 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
@@ -80,7 +79,7 @@ public class TelaAlterarController implements Initializable {
     public void alterarVendaBtnHandler(ActionEvent event) {
         Pane alterarVenda;
         try {
-            alterarVenda = FXMLLoader.load(getClass().getResource("../../views/TelaAlterarVenda.fxml"));
+            alterarVenda = FXMLLoader.load(getClass().getResource("../../views/alterar/TelaAlterarVenda.fxml"));
             painelAlterar.getChildren().setAll(alterarVenda);
         }catch (IOException ex){
             Logger.getLogger(MenuInicialController.class.getName()).log(Level.SEVERE,null,ex);
