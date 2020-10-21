@@ -1,5 +1,6 @@
 package DistribuidoraDeGas.negocio.gerenciadores;
 
+import DistribuidoraDeGas.dados.RepositorioCliente;
 import DistribuidoraDeGas.dados.RepositorioProdutosVendidos;
 import DistribuidoraDeGas.dados.contratos.*;
 import DistribuidoraDeGas.negocio.entidades.Cliente;
@@ -14,12 +15,14 @@ import java.util.*;
 public class NegocioProduto {
     private iRepositorioEstoqueProdutos repositorioProdutos;
     private iRepositorioPessoa repositorioPessoa;
+    private RepositorioCliente repositorioCliente;
     private RepositorioProdutosVendidos repositorioProdutosVendidos;
 
-    public NegocioProduto(iRepositorioEstoqueProdutos repositorioProd,RepositorioProdutosVendidos repositorioProdutosVendidos, iRepositorioPessoa repositorioPessoa) {
+    public NegocioProduto(iRepositorioEstoqueProdutos repositorioProd,RepositorioProdutosVendidos repositorioProdutosVendidos, iRepositorioPessoa repositorioPessoa, RepositorioCliente rep) {
         this.repositorioProdutos = repositorioProd;
         this.repositorioPessoa = repositorioPessoa;
         this.repositorioProdutosVendidos = repositorioProdutosVendidos;
+        this.repositorioCliente = rep;
     }
 
     public void adicionarProduto(Produto produto) throws ProdutoJaCadastradoException {
@@ -38,7 +41,7 @@ public class NegocioProduto {
 
     public void decrementarQntd(String id, int qntd, String cpf) throws QuantidadeInvalidaException, ProdutoInexistenteException, PessoaInexistenteException {
         Produto produto = this.consultarProduto(id);
-        Cliente cliente = (Cliente) repositorioPessoa.getPessoa(cpf);
+        Cliente cliente = (Cliente) repositorioCliente.getCliente(cpf);
 
         if (produto.getQuantidade() < qntd) {
             throw new QuantidadeInvalidaException(qntd);
@@ -46,11 +49,9 @@ public class NegocioProduto {
             produto.setQuantidade(produto.getQuantidade() - qntd);
         }
 
-        Venda venda2 = new Venda(qntd, new Produto(produto.getNome(), produto.getMarca(), produto.getId(), produto.getQuantidade(), produto.getPeso(),
-                produto.getPreco() * qntd), new Cliente(cliente.getNome(), cliente.getCpf(), cliente.getDataNascimento(), cliente.getTelefone(),
-                cliente.getEndereco(), cliente.getTipo()));
+        Venda venda = new Venda(new Produto(produto.getNome(), produto.getMarca(), produto.getId(), produto.getQuantidade(), produto.getPeso(), 34.0), cliente);
 
-        registarVenda(venda2);
+        registarVenda(venda);
     }
 
     private void registarVenda(Venda venda){
@@ -60,10 +61,6 @@ public class NegocioProduto {
     public Produto consultarProduto(String id) throws ProdutoInexistenteException {
         return this.repositorioProdutos.getProduto(id);
     }
-
-   /* public Cliente consultarCliente(String cpf) throws PessoaInexistenteException {
-        return (Cliente) this.repositorioPessoa.getPessoa(cpf);
-    }*/
 
     public void alterarPreco(Produto produto, double preco) throws ProdutoInexistenteException {
         boolean existe = this.repositorioProdutos.verificarProduto(produto.getId());
@@ -118,15 +115,15 @@ public class NegocioProduto {
         this.repositorioProdutosVendidos.atualizarVenda(venda);
     }
 
-    public ArrayList<Venda> consultarVendaCliente(String cpf){
-        return this.repositorioProdutosVendidos.consultarVendaPeloCliente(cpf);
-    }
+   public void removerVenda(Venda venda){
+        this.repositorioProdutosVendidos.removerVenda(venda);
+   }
 
-    public ArrayList<Venda> consultarVendasCLienteNaoConcluida(String cpf){
-        ArrayList<Venda> vendaCliente = this.repositorioProdutosVendidos.consultarVendaPeloCliente(cpf);
+   public ArrayList<Venda> consultarVendasNaoConcluida(String id){
+        ArrayList<Venda> vendaProduto = this.repositorioProdutosVendidos.consultarVendaPeloProduto(id);
         ArrayList<Venda> vendas = new ArrayList<>();
 
-        for(Venda v: vendaCliente){
+        for(Venda v: vendaProduto){
             if(v.getStatus().equals("Não concluída")){
                 vendas.add(v);
             }

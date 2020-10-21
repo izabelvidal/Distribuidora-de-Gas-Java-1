@@ -83,8 +83,8 @@ public class TelaVendaProdutosController implements Initializable {
         tbProduto.setCellValueFactory(new PropertyValueFactory<>("Nome"));
         tbMarca.setCellValueFactory(new PropertyValueFactory<>("Marca"));
         tbQtd.setCellValueFactory(new PropertyValueFactory<>("Quantidade"));
-        tbPreco.setCellValueFactory(new PropertyValueFactory<>("Preço"));
         tbPeso.setCellValueFactory(new PropertyValueFactory<>("Peso"));
+        tbPreco.setCellValueFactory(new PropertyValueFactory<>("Preço"));
 
         tbProdutoCarrinho.setCellValueFactory(new PropertyValueFactory<>("Nome"));
         tbMarcaCarrinho.setCellValueFactory(new PropertyValueFactory<>("Marca"));
@@ -95,7 +95,7 @@ public class TelaVendaProdutosController implements Initializable {
     @FXML
     public void buscarBtnHandler(ActionEvent event) {
         tbView.getItems().removeAll(ultimoProdutoPesquisado);
-        if(inputId.getText().length()>0){
+        if(inputId.getText().length()>0 && inputCpf.getText().length()>0){
             try {
                 ultimoProdutoPesquisado = Main.distribudora.consultarProduto(inputId.getText());
                 tbView.getItems().add(ultimoProdutoPesquisado); //Insere produto na tabela de visualizacao
@@ -138,7 +138,7 @@ public class TelaVendaProdutosController implements Initializable {
 
             btnVender.setDisable(true);
             inputId.setText("");
-            //inputCpf.setText("");
+            inputCpf.setText("");
             inputqtd.setText("1");
         }
     }
@@ -189,7 +189,7 @@ public class TelaVendaProdutosController implements Initializable {
         }
     }
 
-   /* @FXML
+    @FXML
     public void buscarClienteBtnHandler(ActionEvent event) {
         if(inputCpf.getLength()>0){
             try{
@@ -203,6 +203,6 @@ public class TelaVendaProdutosController implements Initializable {
         }else {
             tbView.getItems().clear();
         }
-    }*/
+    }
 }
 

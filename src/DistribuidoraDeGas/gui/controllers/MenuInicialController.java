@@ -78,6 +78,12 @@ public class MenuInicialController implements Initializable {
 
     @FXML
     private void sairBtnHandler(ActionEvent event){
-        System.exit(0);
+        Pane cadastro;
+        try{
+            cadastro = FXMLLoader.load(getClass().getResource("../../views/cadastro/TelaCadastroGerente.fxml"));
+            painel.getChildren().setAll(cadastro);
+        }catch (IOException ex){
+            System.out.println(ex.getMessage());
+        }
     }
 }

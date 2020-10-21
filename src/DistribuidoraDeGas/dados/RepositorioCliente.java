@@ -1,8 +1,12 @@
 package DistribuidoraDeGas.dados;
 
+import DistribuidoraDeGas.negocio.entidades.Cliente;
+import DistribuidoraDeGas.negocio.entidades.Gerente;
 import DistribuidoraDeGas.negocio.entidades.Pessoa;
 import DistribuidoraDeGas.negocio.excecoes.PessoaInexistenteException;
 import DistribuidoraDeGas.dados.contratos.iRepositorioPessoa;
+import DistribuidoraDeGas.negocio.excecoes.PessoaJaCadastradaException;
+import com.sun.org.apache.bcel.internal.generic.InstructionConstants;
 
 import java.util.ArrayList;
 
@@ -20,8 +24,13 @@ public class RepositorioCliente implements iRepositorioPessoa {
     }
 
     @Override
-    public void adicionarPessoa(Pessoa cliente) {
-        this.clientes.add(cliente);
+    public void adicionarPessoa(Pessoa cliente) throws PessoaJaCadastradaException {
+        boolean existe = this.verificarPessoa(cliente.getCpf());
+        if (existe){
+            throw new PessoaJaCadastradaException(cliente.getCpf());
+        }else {
+            this.clientes.add(cliente);
+        }
     }
 
     @Override
@@ -66,5 +75,18 @@ public class RepositorioCliente implements iRepositorioPessoa {
     @Override
     public ArrayList<Pessoa> listarpessoa() {
         return this.clientes;
+    }
+
+    public Pessoa getCliente(String cpf) throws PessoaInexistenteException {
+        Pessoa retorno = null;
+        int tamanho = this.listarpessoa().size();
+
+        for (int i=0;i<tamanho;i++){
+            if(this.listarpessoa().get(i).getCpf().equals(cpf)){
+                retorno = this.listarpessoa().get(i);
+                break;
+            }
+        }
+        return retorno;
     }
 }

@@ -14,44 +14,27 @@
                 <Font name="System Bold" size="26.0" />
             </font>
         </Label>
-        <TextField fx:id="inputCpf" layoutX="14.0" layoutY="55.0" promptText="Insira o CPF">
-            <cursor>
-                <Cursor fx:constant="TEXT" />
-            </cursor></TextField>
         <DatePicker fx:id="dateSearch" layoutX="182.0" layoutY="55.0" promptText="Buscar por data">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor></DatePicker>
-        <Label ellipsisString="" layoutX="25.0" layoutY="38.0" prefHeight="17.0" prefWidth="99.0" text="Buscar por cliente" />
         <Button fx:id="btnBuscar" layoutX="382.0" layoutY="55.0" mnemonicParsing="false" onAction="#buscarBtnHandler" text="Buscar">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor></Button>
-        <TableView fx:id="tbProduto" layoutX="-1.0" layoutY="106.0" prefHeight="84.0" prefWidth="600.0">
+        <TableView fx:id="tbView" layoutX="-1.0" layoutY="106.0" prefHeight="250.0" prefWidth="600.0">
             <columns>
-                <TableColumn fx:id="tbId" prefWidth="54.0" text="Id" />
-                <TableColumn fx:id="tbNomeProduto" prefWidth="167.0" text="Nome" />
-                <TableColumn fx:id="tbMarca" prefWidth="127.0" text="Marca" />
-                <TableColumn fx:id="tbQnt" prefWidth="51.0" text="Qtd" />
-                <TableColumn fx:id="tbPeso" prefWidth="88.0" text="Peso" />
-                <TableColumn fx:id="tbPreco" prefWidth="112.0" text="Preco" />
+                <TableColumn fx:id="tbId" prefWidth="73.0" text="Id" />
+                <TableColumn fx:id="tbStatus" prefWidth="137.0" text="Status" />
+                <TableColumn fx:id="tbQnt" prefWidth="67.0" text="Qtd" />
+                <TableColumn fx:id="tbPeso" prefWidth="85.0" text="Peso" />
+                <TableColumn fx:id="tbPreco" prefWidth="98.0" text="Preco" />
+            <TableColumn fx:id="tbDataHora" prefWidth="139.0" text="Data e hora" />
             </columns>
         </TableView>
         <Button fx:id="btnVoltar" layoutX="283.0" layoutY="367.0" mnemonicParsing="false" onAction="#voltarBtnHandler" text="Voltar">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor></Button>
-      <TableView fx:id="tbVenda" layoutY="200.0" prefHeight="100.0" prefWidth="600.0">
-        <columns>
-          <TableColumn fx:id="tbCpf" prefWidth="75.0" text="CPF" />
-            <TableColumn fx:id="tbRua" prefWidth="75.0" text="Rua" />
-            <TableColumn fx:id="tbBairro" prefWidth="75.0" text="Bairro" />
-            <TableColumn fx:id="tbNumero" prefWidth="75.0" text="Número" />
-          <TableColumn fx:id="tbData" prefWidth="75.0" text="Data" />
-          <TableColumn fx:id="tbHora" prefWidth="75.0" text="Hora" />
-            <TableColumn fx:id="tbStatus" prefWidth="75.0" text="Status" />
-            <TableColumn fx:id="tbTipo" prefWidth="75.0" text="Tipo Cliente" />
-        </columns>
-      </TableView>
     </children>
 </Pane>

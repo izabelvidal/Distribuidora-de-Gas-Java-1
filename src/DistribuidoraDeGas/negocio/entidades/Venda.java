@@ -19,8 +19,7 @@ public class Venda {
     private Cliente cliente;
     private String hora,data,status;
 
-    public Venda(int quantidade, Produto produto, Cliente cliente){
-        this.quantidade = quantidade;
+    public Venda(Produto produto, Cliente cliente){
         this.produto = produto;
         this.cliente = cliente;
         this.status = "Não concluída";

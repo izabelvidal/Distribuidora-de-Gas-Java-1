@@ -37,9 +37,9 @@ public class RepositorioGerente implements iRepositorioPessoa {
     @Override
     public Pessoa getPessoa(String cpf) throws PessoaInexistenteException {
         int index;
-        for(Pessoa g: this.gerentes){
-            if(g.getCpf().equals(cpf)){
-                index = this.gerentes.indexOf(g);
+        for(Pessoa c: this.gerentes){
+            if(c.getCpf().equals(cpf)){
+                index = this.gerentes.indexOf(c);
                 return this.gerentes.get(index);
             }
         }
